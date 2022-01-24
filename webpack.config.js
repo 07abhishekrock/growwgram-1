@@ -36,6 +36,7 @@ module.exports = {
       routes: path.resolve(__dirname, "src/routes/index.ts"),
       views: path.resolve(__dirname, "src/views"),
       ui: path.resolve(__dirname, "src/ui"),
+      store: path.resolve(__dirname, "src/store/"),
     },
     extensions: [".tsx", ".ts", ".js", ".jsx", ".css"],
   },
