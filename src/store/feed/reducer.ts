@@ -5,6 +5,7 @@ const initialState: FeedState = {
   data: [],
   loading: false,
   errors: "",
+  page: 0,
 };
 
 export const feedReducer: Reducer<FeedState> = (
@@ -17,7 +18,12 @@ export const feedReducer: Reducer<FeedState> = (
     }
     case FeedActionTypes.FETCH_SUCCESS: {
       console.log("action payload", action.payload);
-      return { ...state, loading: false, data: action.payload };
+      return {
+        ...state,
+        loading: false,
+        data: action.payload,
+        page: state.page + 1,
+      };
     }
     case FeedActionTypes.FETCH_ERROR: {
       return { ...state, loading: false, errors: action.payload };

@@ -30,9 +30,10 @@ export enum FeedActionTypes {
 }
 
 export interface FeedState {
-  readonly loading: boolean;
-  readonly data: Feed[];
-  readonly errors?: string;
+  loading: boolean;
+  data: Feed[];
+  errors?: string;
+  page: number;
 }
 
 interface actionRequest {
