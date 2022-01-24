@@ -18,6 +18,9 @@
         "common/*": [
           "common/*"
         ],
+        "components/*": [
+          "components/*"
+        ],
         "ui/*": [
           "ui/*"
         ],
@@ -31,7 +34,7 @@
           "utils/*"
         ],
         "routes": [
-          "routes.js"
+          "routes/*"
         ],
         "router/*": [
           "router/*"

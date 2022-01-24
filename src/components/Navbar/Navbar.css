@@ -1,0 +1,24 @@
+.nav-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  height: var(--navbar-height);
+  width: 100%;
+
+  background: var(--white);
+  border-bottom: 1.5px solid var(--extra-light-gray);
+}
+
+.nav-container {
+  max-width: 1024px;
+  width: 100%;
+}
+
+.logo-link {
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}

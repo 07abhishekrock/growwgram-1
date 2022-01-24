@@ -29,10 +29,11 @@ module.exports = {
     alias: {
       core: path.resolve(__dirname, "src/core/"),
       common: path.resolve(__dirname, "src/common/"),
+      components: path.resolve(__dirname, "src/components/"),
       styles: path.resolve(__dirname, "src/styles/"),
       store: path.resolve(__dirname, "src/store/"),
       utils: path.resolve(__dirname, "src/utils/"),
-      routes: path.resolve(__dirname, "src/routes/routes.ts"),
+      routes: path.resolve(__dirname, "src/routes/index.ts"),
       views: path.resolve(__dirname, "src/views"),
       ui: path.resolve(__dirname, "src/ui"),
     },

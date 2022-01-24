@@ -1,19 +1,23 @@
-import "styles/paper.css";
-
 import React from "react";
-
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import routes from "../routes/routes";
+import "styles/style.css";
+import routes from "routes/";
+import { Navbar } from "components";
 
 function Wrapper() {
   return (
     <BrowserRouter>
-      <Routes>
-        {routes.map(({ path, Component }) => (
-          <Route key={path} path={path} element={<Component />} />
-        ))}
-      </Routes>
+      <Navbar />
+      <div className="container">
+        <div className="routes-container">
+          <Routes>
+            {routes.map(({ path, Component }) => (
+              <Route key={path} path={path} element={<Component />} />
+            ))}
+          </Routes>
+        </div>
+      </div>
     </BrowserRouter>
   );
 }
