@@ -20,9 +20,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "build/client"),
     filename: isProd ? `js/[name].[chunkhash:8].js` : `js/[name].js`,
-    publicPath: isProd
-      ? `${configJs.assetsUrl}/${packageJson.name}/build/client/`
-      : "auto",
+    publicPath: "auto",
   },
 
   resolve: {
