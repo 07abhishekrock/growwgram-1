@@ -11,7 +11,7 @@ const FeedList = () => {
 
   return (
     <div className="fl14Body">
-      {!loading && feeds.map((feed) => <FeedCard feed={feed} />)}
+      {!loading && feeds.map((feed) => <FeedCard key={feed.id} feed={feed} />)}
     </div>
   );
 };

@@ -1,24 +1,62 @@
 .uli12Body {
   display: flex;
   align-items: center;
+
+  border-radius: 5px;
   margin: 5px 0 5px 0;
   padding: 5px 0 5px 0;
+
+  transition: background 250ms;
+}
+
+.uli12Body:hover {
+  background: var(--extra-light-gray);
+  cursor: pointer;
 }
 
 .uli12ImgContainer {
-  height: 36px;
-  width: 36px;
+  padding: 0 5px;
+}
+
+.uli12Img {
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
   border: 1px solid var(--extra-light-gray);
   overflow: hidden;
 }
 
-.uli12ImgContainer img {
+.uli12Img img {
   height: 100%;
   width: 100%;
   object-fit: cover;
 }
 
-.uli12Name {
+.uli12Details {
   margin-left: 5px;
+  width: 100%;
+}
+
+.uli12Name {
+  font-size: var(--text-xs);
+  font-weight: 600;
+}
+
+.uli12Stats {
+  display: flex;
+  font-size: var(--text-xxs);
+  align-items: center;
+  color: var(--dark-gray);
+  width: 100%;
+}
+
+.uli12Stats p {
+  display: flex;
+  align-items: center;
+  min-width: 60px;
+  padding: 2px 5px;
+}
+
+.uli12Icon {
+  margin-right: 5px;
 }

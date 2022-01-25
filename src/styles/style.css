@@ -20,6 +20,7 @@
   --extra-light-gray: #e1e8ed;
   --extra-extra-light-gray: #f5f8fa;
   --white: #fff;
+  --like: #e31b23;
 
   /* Sizes */
   --navbar-height: 60px;
@@ -27,6 +28,7 @@
   /* Font Sizes*/
   --text-sm: 16px;
   --text-xs: 14px;
+  --text-xxs: 12px;
 }
 
 body {
@@ -41,6 +43,7 @@ body {
 }
 
 .routes-container {
+  padding: 0 10px;
   margin-top: var(--navbar-height);
   max-width: 1024px;
   width: 100%;

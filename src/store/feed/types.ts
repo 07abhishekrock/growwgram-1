@@ -5,6 +5,7 @@ export interface Feed {
   color: string;
   downloads: number;
   likes: number;
+  alt_description: string;
   description: string;
   location: {
     name: string;
@@ -15,6 +16,12 @@ export interface Feed {
     regular: string;
     small: string;
     thumb: string;
+  };
+  links: {
+    download: string;
+    download_location: string;
+    html: string;
+    self: string;
   };
   user: {
     id: string;

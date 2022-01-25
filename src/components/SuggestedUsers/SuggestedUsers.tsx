@@ -12,7 +12,10 @@ const SuggestedUsers = () => {
   return (
     <div className="su13Body">
       <p className="su13Title">Suggestions for you</p>
-      {!loading && suggestedUsers.map((user) => <UserListItem user={user} />)}
+      {!loading &&
+        suggestedUsers.map((user) => (
+          <UserListItem key={user.id} user={user} />
+        ))}
     </div>
   );
 };

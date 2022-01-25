@@ -4,9 +4,22 @@
 }
 
 .hp12FeedContainer {
-  flex: 2;
+  flex: 1;
 }
 
 .hp12SuggestedContainer {
-  flex: 1;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .hp12FeedContainer {
+    flex: 2;
+  }
+
+  .hp12SuggestedContainer {
+    display: block;
+    position: relative;
+    width: 100%;
+    flex: 1;
+  }
 }

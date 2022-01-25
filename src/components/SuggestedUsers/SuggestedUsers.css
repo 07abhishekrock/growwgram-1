@@ -1,4 +1,7 @@
 .su13Body {
+  position: sticky;
+  top: 70px;
+  width: inherit;
   padding-left: 20px;
 }
 

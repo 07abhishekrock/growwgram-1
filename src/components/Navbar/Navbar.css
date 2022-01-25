@@ -9,9 +9,11 @@
 
   background: var(--white);
   border-bottom: 1.5px solid var(--extra-light-gray);
+  z-index: 2;
 }
 
 .nav-container {
+  padding: 0 10px;
   max-width: 1024px;
   width: 100%;
 }

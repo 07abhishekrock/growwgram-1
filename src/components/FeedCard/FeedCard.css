@@ -16,3 +16,46 @@
   width: 100%;
   object-fit: cover;
 }
+
+.fc12Content {
+  padding: 10px 15px;
+}
+
+.fc12Stats {
+  display: flex;
+  margin: 5px 0;
+}
+
+.fc12Stats p,
+a {
+  display: flex;
+  align-items: center;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--dark-gray);
+}
+
+.fc12Stats p {
+  margin-right: auto;
+
+  color: var(--like);
+}
+
+.fc12Icon {
+  margin-right: 5px;
+}
+
+.fc12Description {
+  margin: 10px 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fc12Time {
+  flex-shrink: 0;
+  font-size: var(--text-xxs);
+  font-weight: 600;
+  color: var(--light-gray);
+}
