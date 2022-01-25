@@ -23,11 +23,7 @@ export interface Feed {
     html: string;
     self: string;
   };
-  user: {
-    id: string;
-    username: string;
-    name: string;
-  };
+  user: SuggestedUser;
 }
 
 export interface SuggestedUser {
@@ -70,7 +66,7 @@ interface actionSuccess {
   type: FeedActionTypes.FETCH_SUCCESS;
   payload: {
     feeds: Feed[];
-    suggestedUsers: any[];
+    suggestedUsers?: SuggestedUser[];
   };
 }
 

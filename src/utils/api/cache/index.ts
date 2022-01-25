@@ -16,10 +16,23 @@ export const getValue = (key: cacheKey) => {
 };
 
 export const setValue = (key: cacheKey, val: any) => {
-  const now = Date.now();
-  const cacheValue = {
-    createdAt: now,
-    [key]: val,
-  };
-  localStorage.setItem(key, JSON.stringify(cacheValue));
+  console.log(key, val);
+  const currentCacheStr = localStorage.getItem(key);
+  let newCacheValue;
+  if (currentCacheStr) {
+    const currentCacheValue = JSON.parse(currentCacheStr);
+    newCacheValue = {
+      ...currentCacheValue,
+      [key]: [...currentCacheValue[key], ...val[key]],
+      page: val.page,
+    };
+  } else {
+    const now = Date.now();
+    newCacheValue = {
+      createdAt: now,
+      [key]: val,
+      page: val.page,
+    };
+  }
+  localStorage.setItem(key, JSON.stringify(newCacheValue));
 };

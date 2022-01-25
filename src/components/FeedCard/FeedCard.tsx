@@ -7,7 +7,7 @@ import {
 
 import "./FeedCard.css";
 import { Feed } from "store/feed";
-import { UserListItem } from "..";
+import { ImageRenderer, UserListItem } from "..";
 import { getTimeFrom } from "utils/helpers";
 
 interface Props {
@@ -18,7 +18,12 @@ const FeedCard: React.FC<Props> = ({ feed }) => {
   return (
     <div className="fc12Body">
       <div className="fc12ImageContainer">
-        <img src={feed.urls.regular} alt={feed.alt_description} />
+        {/* <img
+          data-src={feed.urls.regular}
+          className="fc12Lazy"
+          alt={feed.alt_description}
+        /> */}
+        <ImageRenderer url={feed.urls.regular} thumb={feed.urls.thumb} />
       </div>
       <div className="fc12Content">
         <div className="fc12Stats">

@@ -24,7 +24,7 @@ export const feedReducer: Reducer<FeedState> = (
       return {
         ...state,
         loading: false,
-        data: action.payload,
+        data: { ...state.data, ...action.payload },
         page: state.page + 1,
       };
     }

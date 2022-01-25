@@ -12,10 +12,15 @@ export const getFeeds =
   (): AppThunk => async (dispatch: Dispatch<Action>, getState) => {
     try {
       const currentState = getState();
-      const feeds = await fetchFeeds<Feed[]>(currentState.feed.page + 1);
+      const currentPage = currentState.feed.page;
+      console.log(currentPage);
+      const feeds = await fetchFeeds<Feed[]>(currentPage + 1);
       dispatch({
         type: FeedActionTypes.FETCH_SUCCESS,
-        payload: { feeds, suggestedUsers: getTopUsers(feeds) },
+        payload: {
+          feeds: [...currentState.feed.data.feeds, ...feeds],
+          ...(currentPage === 0 && { suggestedUsers: getTopUsers(feeds) }),
+        },
       });
     } catch (error: any) {
       console.log(error);
