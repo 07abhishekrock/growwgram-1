@@ -23,6 +23,22 @@ export interface Feed {
   };
 }
 
+export interface SuggestedUser {
+  bio: "· Co-Founder of Evano & Aesence.\r\n· Minimalist design lover & hobby photographer.\r\n";
+  first_name: "Sarah";
+  id: "J2vZstLiwhU";
+  last_name: "Dorweiler";
+  name: "Sarah Dorweiler";
+  profile_image: {
+    large: string;
+    small: string;
+    medium: string;
+  };
+  total_likes: 418;
+  total_photos: 29;
+  username: "sarahdorweiler";
+}
+
 export enum FeedActionTypes {
   FETCH_REQUEST = "@@feed/FETCH_FEED_REQUEST",
   FETCH_SUCCESS = "@@feed/FETCH_FEED_SUCCESS",
@@ -31,7 +47,10 @@ export enum FeedActionTypes {
 
 export interface FeedState {
   loading: boolean;
-  data: Feed[];
+  data: {
+    feeds: Feed[];
+    suggestedUsers: SuggestedUser[];
+  };
   errors?: string;
   page: number;
 }
@@ -42,7 +61,10 @@ interface actionRequest {
 
 interface actionSuccess {
   type: FeedActionTypes.FETCH_SUCCESS;
-  payload: Feed[];
+  payload: {
+    feeds: Feed[];
+    suggestedUsers: any[];
+  };
 }
 
 interface actionFail {

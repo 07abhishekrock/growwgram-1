@@ -2,7 +2,10 @@ import { Reducer } from "redux";
 import { FeedActionTypes, FeedState } from "./types";
 
 const initialState: FeedState = {
-  data: [],
+  data: {
+    suggestedUsers: [],
+    feeds: [],
+  },
   loading: false,
   errors: "",
   page: 0,

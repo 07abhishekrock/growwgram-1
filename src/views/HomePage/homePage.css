@@ -1,3 +1,12 @@
-.hp23Body {
-  font-size: 14px;
+.hp12Body {
+  display: flex;
+  padding-top: 30px;
+}
+
+.hp12FeedContainer {
+  flex: 2;
+}
+
+.hp12SuggestedContainer {
+  flex: 1;
 }

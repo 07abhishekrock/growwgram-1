@@ -1,0 +1,24 @@
+.uli12Body {
+  display: flex;
+  align-items: center;
+  margin: 5px 0 5px 0;
+  padding: 5px 0 5px 0;
+}
+
+.uli12ImgContainer {
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--extra-light-gray);
+  overflow: hidden;
+}
+
+.uli12ImgContainer img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.uli12Name {
+  margin-left: 5px;
+}

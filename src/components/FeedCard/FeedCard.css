@@ -1,0 +1,18 @@
+.fc12Body {
+  border: 1px solid var(--extra-light-gray);
+  border-radius: 5px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  background: var(--white);
+}
+
+.fc12ImageContainer {
+  overflow: hidden;
+  height: 500px;
+}
+
+.fc12ImageContainer img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
