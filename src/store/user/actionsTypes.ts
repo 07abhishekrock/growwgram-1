@@ -3,6 +3,7 @@ import { Feed, User } from "..";
 export enum UserActionTypes {
   FETCH_REQUEST = "@@user/FETCH_USER_REQUEST",
   FETCH_USER_SUCCESS = "@@user/FETCH_USER_SUCCESS",
+  FETCH_USER_PHOTOS_SUCCESS = "@@user/FETCH_USER_PHOTOS_SUCCESS",
   FETCH_ERROR = "@@user/FETCH_USER_ERROR",
 }
 
@@ -17,15 +18,8 @@ interface actionUserSuccess {
   };
 }
 
-interface actionUserSuccess {
-  type: UserActionTypes.FETCH_USER_SUCCESS;
-  payload: {
-    user: User;
-  };
-}
-
 interface actionUserPhotosSuccess {
-  type: UserActionTypes.FETCH_USER_SUCCESS;
+  type: UserActionTypes.FETCH_USER_PHOTOS_SUCCESS;
   payload: {
     photos: Feed[];
   };

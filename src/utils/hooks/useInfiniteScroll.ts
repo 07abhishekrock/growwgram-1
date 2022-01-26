@@ -2,17 +2,13 @@ import { useEffect, useRef, useState } from "react";
 
 const useInfiniteScroll = (cb: () => void) => {
   const [lastElement, setLastElement] = useState<HTMLDivElement | null>(null);
-
   const observerRef = useRef(
-    new IntersectionObserver(
-      (entries) => {
-        const first = entries[0];
-        if (first.isIntersecting) {
-          cb();
-        }
-      },
-      { rootMargin: "200px" }
-    )
+    new IntersectionObserver((entries) => {
+      const first = entries[0];
+      if (first.isIntersecting) {
+        cb();
+      }
+    })
   );
 
   useEffect(() => {

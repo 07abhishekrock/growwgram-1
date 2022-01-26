@@ -20,7 +20,6 @@ export const feedReducer: Reducer<FeedState> = (
       return { ...state, loading: true };
     }
     case FeedActionTypes.FETCH_SUCCESS: {
-      console.log("action payload", action.payload);
       return {
         ...state,
         loading: false,

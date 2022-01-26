@@ -1,0 +1,36 @@
+.t12Body {
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+}
+
+.t12Tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: transparent;
+  border: none;
+
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--dark-gray);
+
+  padding: 10px 20px;
+
+  transition: transform 150ms linear;
+}
+
+.t12Tab:hover {
+  cursor: pointer;
+}
+
+.selected {
+  color: var(--primary-color);
+  transform: scale(1.1);
+}
+
+.t12Icon {
+  margin-right: 5px;
+}

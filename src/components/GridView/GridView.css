@@ -1,0 +1,11 @@
+.gv12Body {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
+  padding: 20px 0;
+}
+
+.gv12Image {
+  padding: 5;
+  height: 250px;
+}

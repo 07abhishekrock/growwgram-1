@@ -15,24 +15,47 @@ export const getValue = (key: cacheKey) => {
   return null;
 };
 
-export const setValue = (key: cacheKey, val: any) => {
-  console.log(key, val);
-  const currentCacheStr = localStorage.getItem(key);
+export const setFeedValue = (val: any) => {
+  const currentCacheStr = localStorage.getItem("feeds");
   let newCacheValue;
   if (currentCacheStr) {
     const currentCacheValue = JSON.parse(currentCacheStr);
     newCacheValue = {
       ...currentCacheValue,
-      [key]: [...currentCacheValue[key], ...val[key]],
+      feeds: [...currentCacheValue.feeds, ...val.feeds],
       page: val.page,
     };
   } else {
     const now = Date.now();
     newCacheValue = {
       createdAt: now,
-      [key]: val,
+      feeds: val.feeds,
       page: val.page,
     };
   }
-  localStorage.setItem(key, JSON.stringify(newCacheValue));
+  localStorage.setItem("feeds", JSON.stringify(newCacheValue));
+};
+
+export const setUserValue = (val: any) => {
+  const currentCacheStr = localStorage.getItem("user");
+  let newCacheValue;
+  if (currentCacheStr) {
+    const currentCacheValue = JSON.parse(currentCacheStr);
+    const newPhotos = currentCacheValue.photos
+      ? [...currentCacheValue.photos, ...val.photos]
+      : [...val.photos];
+    newCacheValue = {
+      ...currentCacheValue,
+      photos: newPhotos,
+      page: val.page,
+    };
+  } else {
+    const now = Date.now();
+    newCacheValue = {
+      createdAt: now,
+      user: val.user,
+      page: val.page,
+    };
+  }
+  localStorage.setItem("user", JSON.stringify(newCacheValue));
 };

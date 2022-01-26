@@ -20,11 +20,17 @@ export const userReducer: Reducer<UserState> = (
       return { ...state, loading: true };
     }
     case UserActionTypes.FETCH_USER_SUCCESS: {
-      console.log("action payload", action.payload);
       return {
         ...state,
         loading: false,
         data: { ...state.data, ...action.payload },
+      };
+    }
+    case UserActionTypes.FETCH_USER_PHOTOS_SUCCESS: {
+      return {
+        ...state,
+        loading: false,
+        data: { ...state.data, photos: action.payload.photos },
         page: state.page + 1,
       };
     }

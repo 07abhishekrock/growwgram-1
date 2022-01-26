@@ -1,27 +1,50 @@
-import { ImageRenderer } from "components/reusables";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { AiFillInstagram, AiFillTwitterCircle } from "react-icons/ai";
+import { BsGrid3X3 } from "react-icons/bs";
+import { RiListUnordered } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
-import { getUser, selectUser } from "store/user";
+
+import { getUser, getUserFeeds, selectUser } from "store/user";
+import { ImageRenderer, Tabs } from "components/reusables";
 import { formatNumberString } from "utils/helpers";
 import "./ProfilePage.css";
+import { GridView } from "components";
+
+const TabList = [
+  {
+    Icon: BsGrid3X3,
+    name: "Grid",
+  },
+  {
+    Icon: RiListUnordered,
+    name: "List",
+  },
+];
 
 const ProfilePage = () => {
   const params = useParams();
   const {
     data: { user },
-    loading,
   } = useSelector(selectUser);
   const dispatch = useDispatch();
 
+  const [tab, setTab] = useState(0);
+
   useEffect(() => {
-    dispatch(getUser(params.username!));
+    (async () => {
+      await dispatch(getUser(params.username!));
+      await dispatch(getUserFeeds(params.username!));
+    })();
   }, []);
 
-  if (loading || !user) {
+  if (!user) {
     return <h1>Loading...</h1>;
   }
+
+  const handleTabChange = (idx: number) => {
+    if (tab !== idx) setTab(idx);
+  };
 
   const { name, username, profile_image, social, bio } = user!;
 
@@ -81,6 +104,9 @@ const ProfilePage = () => {
           </div>
         </div>
       </div>
+      <hr className="pp12Line" />
+      <Tabs selectedTab={tab} list={TabList} onTabChange={handleTabChange} />
+      <GridView />
     </div>
   );
 };
