@@ -42,12 +42,6 @@ export interface SuggestedUser {
   username: "sarahdorweiler";
 }
 
-export enum FeedActionTypes {
-  FETCH_REQUEST = "@@feed/FETCH_FEED_REQUEST",
-  FETCH_SUCCESS = "@@feed/FETCH_FEED_SUCCESS",
-  FETCH_ERROR = "@@feed/FETCH_FEED_ERROR",
-}
-
 export interface FeedState {
   loading: boolean;
   data: {
@@ -57,22 +51,3 @@ export interface FeedState {
   errors?: string;
   page: number;
 }
-
-interface actionRequest {
-  type: FeedActionTypes.FETCH_REQUEST;
-}
-
-interface actionSuccess {
-  type: FeedActionTypes.FETCH_SUCCESS;
-  payload: {
-    feeds: Feed[];
-    suggestedUsers?: SuggestedUser[];
-  };
-}
-
-interface actionFail {
-  type: FeedActionTypes.FETCH_ERROR;
-  payload: string;
-}
-
-export type Action = actionRequest | actionSuccess | actionFail;

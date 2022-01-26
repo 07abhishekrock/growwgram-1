@@ -20,7 +20,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "build/client"),
     filename: isProd ? `js/[name].[chunkhash:8].js` : `js/[name].js`,
-    publicPath: "auto",
+    publicPath: isProd ? "auto" : "/",
   },
 
   resolve: {
@@ -127,5 +127,6 @@ module.exports = {
   devServer: {
     hot: true,
     port: 3001,
+    historyApiFallback: true,
   },
 };

@@ -1,25 +1,25 @@
 import { Reducer } from "redux";
-import { FeedActionTypes, FeedState } from ".";
+import { UserActionTypes, UserState } from ".";
 
-const initialState: FeedState = {
+const initialState: UserState = {
   data: {
-    suggestedUsers: [],
-    feeds: [],
+    user: null,
+    photos: [],
   },
   loading: false,
   errors: "",
   page: 0,
 };
 
-export const feedReducer: Reducer<FeedState> = (
+export const userReducer: Reducer<UserState> = (
   state = initialState,
   action
 ) => {
   switch (action.type) {
-    case FeedActionTypes.FETCH_REQUEST: {
+    case UserActionTypes.FETCH_REQUEST: {
       return { ...state, loading: true };
     }
-    case FeedActionTypes.FETCH_SUCCESS: {
+    case UserActionTypes.FETCH_USER_SUCCESS: {
       console.log("action payload", action.payload);
       return {
         ...state,
@@ -28,7 +28,7 @@ export const feedReducer: Reducer<FeedState> = (
         page: state.page + 1,
       };
     }
-    case FeedActionTypes.FETCH_ERROR: {
+    case UserActionTypes.FETCH_ERROR: {
       return { ...state, loading: false, errors: action.payload };
     }
     default: {

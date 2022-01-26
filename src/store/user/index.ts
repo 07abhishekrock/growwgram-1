@@ -1,6 +1,6 @@
 import { RootState } from "..";
 
-export const selectFeeds = (state: RootState) => state.feed;
+export const selectUser = (state: RootState) => state.user;
 
 export * from "./actions";
 export * from "./actionsTypes";

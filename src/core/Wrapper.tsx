@@ -1,11 +1,10 @@
+import { Navbar } from "components";
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
-
+import { BrowserRouter, Route, Routes, Outlet } from "react-router-dom";
 import { store } from "store";
 import "styles/style.css";
-import routes from "routes/";
-import { Navbar } from "components";
+import { HomePage, ProfilePage } from "views";
 
 function Wrapper() {
   return (
@@ -15,9 +14,17 @@ function Wrapper() {
         <div className="container">
           <div className="routes-container">
             <Routes>
-              {routes.map(({ path, Component }) => (
-                <Route key={path} path={path} element={<Component />} />
-              ))}
+              <Route
+                path="user"
+                element={
+                  <>
+                    <Outlet />
+                  </>
+                }
+              >
+                <Route path=":username" element={<ProfilePage />} />
+              </Route>
+              <Route path="/" element={<HomePage />} />
             </Routes>
           </div>
         </div>

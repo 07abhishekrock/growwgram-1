@@ -1,0 +1,81 @@
+.pp12Body {
+  padding-top: 30px;
+  width: 100%;
+}
+
+.pp12Content {
+  display: flex;
+}
+
+.pp12ImageContainer {
+  height: 150px;
+  width: 150px;
+
+  border: 1px solid var(--light-gray);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.pp12Details {
+  padding: 0 20px;
+  width: 100%;
+}
+
+.pp12Row1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pp12Name {
+  display: flex;
+  align-items: center;
+}
+
+.pp12Name p {
+  margin-left: 20px;
+
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--dark-gray);
+}
+
+.pp12Socials {
+  display: flex;
+}
+
+.pp12Icon {
+  color: var(--dark-gray);
+  margin: 0 5px;
+}
+
+.pp12bio {
+  margin: 20px 0px;
+  font-size: var(--text-sm);
+}
+
+.pp12Stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  width: 100%;
+  margin: 10px 0px;
+}
+
+.pp12StatContainer {
+  display: flex;
+  align-items: center;
+  min-width: 60px;
+
+  color: var(--black);
+}
+
+.pp12Stat {
+  font-size: var(--text-xxs);
+  font-weight: 600;
+  color: var(--dark-gray);
+
+  margin-right: 5px;
+}

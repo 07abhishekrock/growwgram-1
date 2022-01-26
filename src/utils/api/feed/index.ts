@@ -5,7 +5,6 @@ export const fetchFeeds = async <T = any>(page: number) => {
   try {
     const cacheValue = getValue("feeds");
     if (cacheValue && cacheValue.page >= page) {
-      console.log(cacheValue, "Cachle value", page);
       return cacheValue.feeds;
     }
     const resp = await axiosInstance.get<T>(`/photos`, {

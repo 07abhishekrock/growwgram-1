@@ -1,10 +1,14 @@
-import { HomePage } from 'views/HomePage';
+import { ProfilePage, HomePage } from "views";
 
 const routes = [
-    {
-        path: '/',
-        Component: HomePage,
-    },
+  {
+    path: "/user/:userId",
+    Component: ProfilePage,
+  },
+  {
+    path: "/",
+    Component: HomePage,
+  },
 ];
 
 export default routes;
