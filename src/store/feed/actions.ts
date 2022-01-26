@@ -13,7 +13,7 @@ export const getFeeds =
     try {
       const currentState = getState();
       const currentPage = currentState.feed.page;
-      console.log(currentPage);
+      dispatch({ type: FeedActionTypes.FETCH_REQUEST });
       const feeds = await fetchFeeds<Feed[]>(currentPage + 1);
       dispatch({
         type: FeedActionTypes.FETCH_SUCCESS,

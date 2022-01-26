@@ -18,11 +18,6 @@ const FeedCard: React.FC<Props> = ({ feed }) => {
   return (
     <div className="fc12Body">
       <div className="fc12ImageContainer">
-        {/* <img
-          data-src={feed.urls.regular}
-          className="fc12Lazy"
-          alt={feed.alt_description}
-        /> */}
         <ImageRenderer url={feed.urls.regular} thumb={feed.urls.thumb} />
       </div>
       <div className="fc12Content">

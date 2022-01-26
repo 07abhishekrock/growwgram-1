@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getFeeds, selectFeeds } from "store/feed";
 import { useInfiniteScroll } from "utils/hooks";
-import { FeedCard } from "..";
+import { FeedCard, FeedSkeleton } from "..";
 import "./FeedList.css";
 
 const FeedList = () => {
@@ -17,17 +17,18 @@ const FeedList = () => {
 
   return (
     <div className="fl14Body">
-      {feeds &&
-        feeds.map((feed, idx) => {
-          if (idx === feeds.length - 1)
-            return (
-              <div key={idx} ref={setLastElement}>
-                <FeedCard feed={feed} />
-              </div>
-            );
-          return <FeedCard key={idx} feed={feed} />;
-        })}
-      {loading && <h1>Loading...</h1>}
+      {feeds.length
+        ? feeds.map((feed, idx) => {
+            if (idx === feeds.length - 1)
+              return (
+                <div key={idx} ref={setLastElement}>
+                  <FeedCard feed={feed} />
+                </div>
+              );
+            return <FeedCard feed={feed} key={idx} />;
+          })
+        : Array.from(Array(5)).map((_, i) => <FeedSkeleton key={i} />)}
+      {feeds.length > 0 && loading && <FeedSkeleton />}
     </div>
   );
 };

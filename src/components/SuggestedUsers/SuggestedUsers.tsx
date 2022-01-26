@@ -3,19 +3,20 @@ import { useSelector } from "react-redux";
 
 import "./SuggestedUsers.css";
 import { selectFeeds } from "store/feed";
-import { UserListItem } from "..";
+import { UserListItem, UserListItemSkeleton } from "..";
 
 const SuggestedUsers = () => {
-  const { data, loading } = useSelector(selectFeeds);
+  const { data } = useSelector(selectFeeds);
   const { suggestedUsers } = data;
 
   return (
     <div className="su13Body">
       <p className="su13Title">Suggestions for you</p>
-      {!loading &&
-        suggestedUsers.map((user) => (
-          <UserListItem key={user.id} user={user} />
-        ))}
+      {suggestedUsers.length > 0
+        ? suggestedUsers.map((user) => (
+            <UserListItem key={user.id} user={user} />
+          ))
+        : Array.from(Array(5)).map((_, i) => <UserListItemSkeleton key={i} />)}
     </div>
   );
 };
