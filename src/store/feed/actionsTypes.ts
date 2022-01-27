@@ -13,8 +13,8 @@ interface actionRequest {
 interface actionSuccess {
   type: FeedActionTypes.FETCH_SUCCESS;
   payload: {
-    feeds: Feed[];
-    suggestedUsers?: SuggestedUser[];
+    data: { feeds: Feed[]; suggestedUsers?: SuggestedUser[] };
+    complete?: boolean;
   };
 }
 

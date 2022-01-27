@@ -1,6 +1,10 @@
 .fc12Body {
   border: 1px solid var(--extra-light-gray);
   border-radius: 5px;
+
+  max-width: 700px;
+  width: 100%;
+
   margin-bottom: 20px;
   overflow: hidden;
   background: var(--white);

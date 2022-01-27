@@ -11,6 +11,15 @@ const useInfiniteScroll = (cb: () => void) => {
     })
   );
 
+  const unObserve = () => {
+    const currentElement = lastElement;
+    const currentObserver = observerRef.current;
+
+    if (currentElement) {
+      currentObserver.unobserve(currentElement);
+    }
+  };
+
   useEffect(() => {
     const currentElement = lastElement;
     const currentObserver = observerRef.current;
@@ -26,7 +35,7 @@ const useInfiniteScroll = (cb: () => void) => {
     };
   }, [lastElement]);
 
-  return { setLastElement };
+  return { lastElement, setLastElement, unObserve };
 };
 
 export default useInfiniteScroll;

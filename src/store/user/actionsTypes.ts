@@ -21,7 +21,10 @@ interface actionUserSuccess {
 interface actionUserPhotosSuccess {
   type: UserActionTypes.FETCH_USER_PHOTOS_SUCCESS;
   payload: {
-    photos: Feed[];
+    data: {
+      photos: Feed[];
+    };
+    complete?: boolean;
   };
 }
 

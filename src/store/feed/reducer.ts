@@ -6,6 +6,7 @@ const initialState: FeedState = {
     suggestedUsers: [],
     feeds: [],
   },
+  complete: false,
   loading: false,
   errors: "",
   page: 0,
@@ -23,8 +24,9 @@ export const feedReducer: Reducer<FeedState> = (
       return {
         ...state,
         loading: false,
-        data: { ...state.data, ...action.payload },
-        page: state.page + 1,
+        data: { ...state.data, ...action.payload.data },
+        complete: action.payload.complete || false,
+        page: action.payload.page,
       };
     }
     case FeedActionTypes.FETCH_ERROR: {

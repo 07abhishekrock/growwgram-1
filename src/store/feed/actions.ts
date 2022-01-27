@@ -13,12 +13,16 @@ export const getFeeds =
       const currentState = getState();
       const currentPage = currentState.feed.page;
       dispatch({ type: FeedActionTypes.FETCH_REQUEST });
-      const feeds = await fetchFeeds<Feed[]>(currentPage + 1);
+      const { feeds, page } = await fetchFeeds<Feed[]>(currentPage + 1);
       dispatch({
         type: FeedActionTypes.FETCH_SUCCESS,
         payload: {
-          feeds: [...currentState.feed.data.feeds, ...feeds],
-          ...(currentPage === 0 && { suggestedUsers: getTopUsers(feeds) }),
+          data: {
+            feeds: [...currentState.feed.data.feeds, ...feeds],
+            ...(currentPage === 0 && { suggestedUsers: getTopUsers(feeds) }),
+          },
+          page,
+          ...(feeds.length === 0 && { complete: true }),
         },
       });
     } catch (error: any) {

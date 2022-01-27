@@ -3,10 +3,11 @@ import relativeTime from "dayjs/plugin/relativeTime";
 
 dayjs.extend(relativeTime);
 
-export const formatNumberString = (num: number) => {
-  if (num / 10 ** 6 >= 1) return (num / 10 ** 6).toFixed(1).toString() + "M";
+export const formatNumberString = (num: number, precision: number = 1) => {
+  if (num / 10 ** 6 >= 1)
+    return (num / 10 ** 6).toFixed(precision).toString() + "M";
   else if (num / 10 ** 3 >= 1)
-    return (num / 10 ** 3).toFixed(1).toString() + "k";
+    return (num / 10 ** 3).toFixed(precision).toString() + "k";
   return num.toString();
 };
 

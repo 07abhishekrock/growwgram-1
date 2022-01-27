@@ -1,5 +1,13 @@
-@media (min-width: 768px) {
-  .fl14Body {
-    padding-right: 20px;
-  }
+.fl14Body {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fl14LastElement {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }

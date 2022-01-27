@@ -35,6 +35,7 @@ export interface UserState {
     user: User | null;
     photos: Feed[];
   };
+  complete?: boolean;
   errors?: string;
   page: number;
 }

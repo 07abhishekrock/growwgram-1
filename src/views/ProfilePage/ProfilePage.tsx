@@ -9,7 +9,7 @@ import { getUser, getUserFeeds, selectUser } from "store/user";
 import { ImageRenderer, Tabs } from "components/reusables";
 import { formatNumberString } from "utils/helpers";
 import "./ProfilePage.css";
-import { GridView } from "components";
+import { FeedList, GridView } from "components";
 
 const TabList = [
   {
@@ -25,11 +25,16 @@ const TabList = [
 const ProfilePage = () => {
   const params = useParams();
   const {
-    data: { user },
+    data: { user, photos },
+    loading,
+    complete,
   } = useSelector(selectUser);
   const dispatch = useDispatch();
 
-  const [tab, setTab] = useState(0);
+  const [tab, setTab] = useState<{ tabNum: number; scrollIdx: number | null }>({
+    tabNum: 0,
+    scrollIdx: null,
+  });
 
   useEffect(() => {
     (async () => {
@@ -43,7 +48,16 @@ const ProfilePage = () => {
   }
 
   const handleTabChange = (idx: number) => {
-    if (tab !== idx) setTab(idx);
+    if (tab.tabNum !== idx) setTab({ tabNum: idx, scrollIdx: null });
+  };
+
+  const handleTabChangeWithScroll = (scrollIdx: number) => {
+    setTab({ tabNum: 1, scrollIdx });
+  };
+
+  const scrollAction = () => {
+    console.log("Reached API call");
+    dispatch(getUserFeeds(params.username!));
   };
 
   const { name, username, profile_image, social, bio } = user!;
@@ -79,34 +93,50 @@ const ProfilePage = () => {
             <p className="pp12StatContainer">
               {" "}
               <p className="pp12Stat">Likes:</p>{" "}
-              {formatNumberString(user.total_likes)}
+              {formatNumberString(user.total_likes, 2)}
             </p>
 
             <p className="pp12StatContainer">
               <p className="pp12Stat">Photos:</p>{" "}
-              {formatNumberString(user.total_photos)}
+              {formatNumberString(user.total_photos, 2)}
             </p>
             <p className="pp12StatContainer">
               {" "}
               <p className="pp12Stat">Downloads:</p>{" "}
-              {formatNumberString(user.downloads)}
+              {formatNumberString(user.downloads, 2)}
             </p>
 
             <p className="pp12StatContainer">
               <p className="pp12Stat">Followers:</p>{" "}
-              {formatNumberString(user.followers_count)}
+              {formatNumberString(user.followers_count, 2)}
             </p>
             <p className="pp12StatContainer">
               {" "}
               <p className="pp12Stat">Following:</p>{" "}
-              {formatNumberString(user.following_count)}
+              {formatNumberString(user.following_count, 2)}
             </p>
           </div>
         </div>
       </div>
       <hr className="pp12Line" />
-      <Tabs selectedTab={tab} list={TabList} onTabChange={handleTabChange} />
-      <GridView />
+      <Tabs
+        selectedTab={tab.tabNum}
+        list={TabList}
+        onTabChange={handleTabChange}
+      />
+      {tab.tabNum === 0 ? (
+        <GridView handleClick={handleTabChangeWithScroll} />
+      ) : (
+        <div className="pp12ListContainer">
+          <FeedList
+            complete={complete || false}
+            data={photos}
+            loading={loading}
+            scrollAction={scrollAction}
+            scrollIdx={tab.scrollIdx}
+          />
+        </div>
+      )}
     </div>
   );
 };

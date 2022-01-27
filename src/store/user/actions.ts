@@ -28,16 +28,28 @@ export const getUserFeeds =
       const currentState = getState();
       const currentPage = currentState.user.page;
       dispatch({ type: UserActionTypes.FETCH_REQUEST });
-      const photos = await fetchUserPhotos<Feed[]>(
+      const { page, photos } = await fetchUserPhotos<Feed[]>(
         username,
         currentPage + 1,
         20
       );
+
+      const payload =
+        photos.length > 0
+          ? {
+              data: { photos: [...currentState.user.data.photos, ...photos] },
+              page,
+              complete: false,
+            }
+          : {
+              data: { photos: currentState.user.data.photos },
+              page,
+              complete: true,
+            };
+
       dispatch({
         type: UserActionTypes.FETCH_USER_PHOTOS_SUCCESS,
-        payload: {
-          photos: [...currentState.user.data.photos, ...photos],
-        },
+        payload,
       });
     } catch (error: any) {
       console.log(error);

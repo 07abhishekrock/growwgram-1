@@ -2,7 +2,7 @@ const MINS = 60000;
 
 type cacheKey = "feeds" | "user";
 
-export const getValue = (key: cacheKey) => {
+export const getValue = (key: cacheKey, val: string | null = null) => {
   const valueString = localStorage.getItem(key);
   if (valueString) {
     const value = JSON.parse(valueString);
@@ -10,7 +10,7 @@ export const getValue = (key: cacheKey) => {
       localStorage.removeItem(key);
       return null;
     }
-    return value[key];
+    return val ? value[val] : value;
   }
   return null;
 };

@@ -48,6 +48,7 @@ export interface FeedState {
     feeds: Feed[];
     suggestedUsers: SuggestedUser[];
   };
+  complete?: boolean;
   errors?: string;
   page: number;
 }
