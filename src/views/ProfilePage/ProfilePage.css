@@ -5,7 +5,14 @@
 
 .pp12Content {
   display: flex;
+  flex-direction: column;
   margin-bottom: 40px;
+}
+
+.pp12ImageWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
 }
 
 .pp12ImageContainer {
@@ -24,13 +31,16 @@
 
 .pp12Row1 {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
 }
 
 .pp12Name {
   display: flex;
   align-items: center;
+}
+
+.pp12Name h1 {
+  font-size: var(--text-xxl);
 }
 
 .pp12Name p {
@@ -43,6 +53,7 @@
 
 .pp12Socials {
   display: flex;
+  margin-top: 10px;
 }
 
 .pp12Icon {
@@ -57,7 +68,7 @@
 
 .pp12Stats {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
 
@@ -69,6 +80,8 @@
   display: flex;
   align-items: center;
   min-width: 60px;
+
+  margin: 0px 5px;
 
   color: var(--black);
 }
@@ -92,4 +105,28 @@
   display: flex;
   justify-content: center;
   padding: 20px 0;
+}
+
+@media (min-width: 576px) {
+  .pp12Content {
+    flex-direction: row;
+  }
+  .pp12ImageWrapper {
+    margin-bottom: 0px;
+  }
+  .pp12Stats {
+    justify-content: space-between;
+  }
+  .pp12Name h1 {
+    font-size: var(--text-xxxxl);
+  }
+
+  .pp12Row1 {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .pp12Socials {
+    margin-top: 0px;
+  }
 }

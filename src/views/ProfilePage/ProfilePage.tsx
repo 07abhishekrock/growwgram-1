@@ -9,7 +9,7 @@ import { getUser, getUserFeeds, selectUser } from "store/user";
 import { ImageRenderer, Tabs } from "components/reusables";
 import { formatNumberString } from "utils/helpers";
 import "./ProfilePage.css";
-import { FeedList, GridView } from "components";
+import { FeedList, GridView, Skeleton } from "components";
 
 const TabList = [
   {
@@ -20,6 +20,14 @@ const TabList = [
     Icon: RiListUnordered,
     name: "List",
   },
+];
+
+const stats = [
+  { key: "total_likes", value: "Likes" },
+  { key: "total_photos", value: "Photos" },
+  { key: "downloads", value: "Downloads" },
+  { key: "followers_count", value: "Followers" },
+  { key: "following_count", value: "Following" },
 ];
 
 const ProfilePage = () => {
@@ -43,10 +51,6 @@ const ProfilePage = () => {
     })();
   }, []);
 
-  if (!user) {
-    return <h1>Loading...</h1>;
-  }
-
   const handleTabChange = (idx: number) => {
     if (tab.tabNum !== idx) setTab({ tabNum: idx, scrollIdx: null });
   };
@@ -60,61 +64,90 @@ const ProfilePage = () => {
     dispatch(getUserFeeds(params.username!));
   };
 
-  const { name, username, profile_image, social, bio } = user!;
-
   return (
     <div className="pp12Body">
       <div className="pp12Content">
-        <div>
+        <div className="pp12ImageWrapper">
           <div className="pp12ImageContainer">
-            <ImageRenderer
-              url={profile_image.large}
-              thumb={profile_image.small}
-            />
+            {user ? (
+              <ImageRenderer
+                url={user.profile_image.large}
+                thumb={user.profile_image.small}
+              />
+            ) : (
+              <Skeleton style={{ height: "100%", width: "100%" }} />
+            )}
           </div>
         </div>
         <div className="pp12Details">
           <div className="pp12Row1">
             <div className="pp12Name">
-              <h1>{name}</h1>
-              <p>{username}</p>
+              {user ? (
+                <>
+                  <h1>{user.name}</h1>
+                  <p>{user.username}</p>
+                </>
+              ) : (
+                <>
+                  <Skeleton style={{ height: "30px", width: "250px" }} />
+                  <Skeleton
+                    style={{
+                      height: "20px",
+                      width: "80px",
+                      marginLeft: "10px",
+                    }}
+                  />
+                </>
+              )}
             </div>
             <div className="pp12Socials">
-              <a href={`https://instagram.com/${social.instagram_username}`}>
-                <AiFillInstagram size={26} className="pp12Icon" />
-              </a>
-              <a href={`https://twitter.com/${social.twitter_username}`}>
-                <AiFillTwitterCircle size={26} className="pp12Icon" />
-              </a>
+              {user ? (
+                <>
+                  <a
+                    href={`https://instagram.com/${user.social.instagram_username}`}
+                  >
+                    <AiFillInstagram size={26} className="pp12Icon" />
+                  </a>
+                  <a
+                    href={`https://twitter.com/${user.social.twitter_username}`}
+                  >
+                    <AiFillTwitterCircle size={26} className="pp12Icon" />
+                  </a>
+                </>
+              ) : (
+                <>
+                  <Skeleton
+                    type="circle"
+                    style={{ height: "30px", width: "30px" }}
+                  />
+                  <Skeleton
+                    type="circle"
+                    style={{ height: "30px", width: "30px", marginLeft: "5px" }}
+                  />
+                </>
+              )}
             </div>
           </div>
-          {bio && <p className="pp12bio">{bio}</p>}
+          {user ? (
+            user.bio && <p className="pp12bio">{user.bio}</p>
+          ) : (
+            <Skeleton
+              style={{ height: "50px", width: "100%", margin: "20px 0" }}
+            />
+          )}
           <div className="pp12Stats">
-            <p className="pp12StatContainer">
-              {" "}
-              <p className="pp12Stat">Likes:</p>{" "}
-              {formatNumberString(user.total_likes, 2)}
-            </p>
-
-            <p className="pp12StatContainer">
-              <p className="pp12Stat">Photos:</p>{" "}
-              {formatNumberString(user.total_photos, 2)}
-            </p>
-            <p className="pp12StatContainer">
-              {" "}
-              <p className="pp12Stat">Downloads:</p>{" "}
-              {formatNumberString(user.downloads, 2)}
-            </p>
-
-            <p className="pp12StatContainer">
-              <p className="pp12Stat">Followers:</p>{" "}
-              {formatNumberString(user.followers_count, 2)}
-            </p>
-            <p className="pp12StatContainer">
-              {" "}
-              <p className="pp12Stat">Following:</p>{" "}
-              {formatNumberString(user.following_count, 2)}
-            </p>
+            {stats.map((stat) => (
+              <p className="pp12StatContainer">
+                {user ? (
+                  <>
+                    <p className="pp12Stat">{stat.value}:</p>{" "}
+                    {formatNumberString((user as any)[stat.key], 2)}
+                  </>
+                ) : (
+                  <Skeleton style={{ height: "30px", width: "80px" }} />
+                )}
+              </p>
+            ))}
           </div>
         </div>
       </div>
@@ -123,6 +156,7 @@ const ProfilePage = () => {
         selectedTab={tab.tabNum}
         list={TabList}
         onTabChange={handleTabChange}
+        disabled={!user}
       />
       {tab.tabNum === 0 ? (
         <GridView handleClick={handleTabChangeWithScroll} />

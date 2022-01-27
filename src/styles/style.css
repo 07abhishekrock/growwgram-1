@@ -26,6 +26,10 @@
   --navbar-height: 60px;
 
   /* Font Sizes*/
+  --text-xxxxl: 32px;
+  --text-xxxl: 28px;
+  --text-xxl: 24px;
+  --text-xl: 20px;
   --text: 18px;
   --text-sm: 16px;
   --text-xs: 14px;

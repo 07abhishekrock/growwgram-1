@@ -6,15 +6,22 @@ interface Props {
   selectedTab: number;
   list: any[];
   onTabChange: (idx: number) => void;
+  disabled: boolean;
 }
 
-const Tabs: React.FC<Props> = ({ list, selectedTab, onTabChange }) => {
+const Tabs: React.FC<Props> = ({
+  list,
+  disabled,
+  selectedTab,
+  onTabChange,
+}) => {
   return (
     <div className="t12Body">
       {list.map(({ Icon, name }, i) => (
         <button
           key={i}
-          className={`t12Tab ${selectedTab === i && "selected"}`}
+          className={`t12Tab ${selectedTab === i && !disabled && "selected"}`}
+          disabled={disabled}
           onClick={() => onTabChange(i)}
         >
           <Icon className={`t12Icon`} /> {name}
