@@ -5,10 +5,37 @@
   width: 100%;
 }
 
+.t12Track {
+  display: flex;
+  justify-content: center;
+
+  padding: 5px 0px;
+}
+
+.t12Ball {
+  height: 4px;
+  width: 4px;
+  margin-left: 20px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  /* transform: translateX(50%); */
+  transition: transform 300ms ease;
+}
+
+.left {
+  transform: translateX(-50px);
+}
+
+.right {
+  transform: translateX(50px);
+}
+
 .t12Tab {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  width: 100px;
 
   background: transparent;
   border: none;
@@ -17,9 +44,7 @@
   font-weight: 600;
   color: var(--dark-gray);
 
-  padding: 10px 20px;
-
-  transition: transform 150ms linear;
+  transition: transform 300ms linear;
 }
 
 .t12Tab:hover {

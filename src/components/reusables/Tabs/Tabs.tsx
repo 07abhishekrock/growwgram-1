@@ -16,17 +16,22 @@ const Tabs: React.FC<Props> = ({
   onTabChange,
 }) => {
   return (
-    <div className="t12Body">
-      {list.map(({ Icon, name }, i) => (
-        <button
-          key={i}
-          className={`t12Tab ${selectedTab === i && !disabled && "selected"}`}
-          disabled={disabled}
-          onClick={() => onTabChange(i)}
-        >
-          <Icon className={`t12Icon`} /> {name}
-        </button>
-      ))}
+    <div>
+      <div className="t12Track">
+        <div className={`t12Ball ${selectedTab === 0 ? "left" : "right"}`} />
+      </div>
+      <div className="t12Body">
+        {list.map(({ Icon, name }, i) => (
+          <button
+            key={i}
+            className={`t12Tab ${selectedTab === i && !disabled && "selected"}`}
+            disabled={disabled}
+            onClick={() => onTabChange(i)}
+          >
+            <Icon className={`t12Icon`} /> {name}
+          </button>
+        ))}
+      </div>
     </div>
   );
 };
