@@ -5,7 +5,6 @@ import { BrowserRouter, Route, Routes, Outlet } from "react-router-dom";
 import { store } from "store";
 import "styles/style.css";
 import { HomePage, ProfilePage } from "views";
-
 function Wrapper() {
   return (
     <Provider store={store}>

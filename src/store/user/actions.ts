@@ -5,8 +5,13 @@ import { AppThunk, Feed } from "..";
 
 export const getUser =
   (username: string): AppThunk =>
-  async (dispatch: Dispatch<UserAction>) => {
+  async (dispatch: Dispatch<UserAction>, getState) => {
     try {
+      const currentState = getState();
+      if (currentState.user.data.user?.username !== username && username) {
+        dispatch({ type: UserActionTypes.RESET });
+      }
+
       dispatch({ type: UserActionTypes.FETCH_REQUEST });
       const user = await fetchUserDetails<User>(username);
       dispatch({

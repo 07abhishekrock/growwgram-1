@@ -38,6 +38,7 @@ export const setFeedValue = (val: any) => {
 
 export const setUserValue = (val: any) => {
   const currentCacheStr = localStorage.getItem("user");
+
   let newCacheValue;
   if (currentCacheStr) {
     const currentCacheValue = JSON.parse(currentCacheStr);
@@ -58,4 +59,8 @@ export const setUserValue = (val: any) => {
     };
   }
   localStorage.setItem("user", JSON.stringify(newCacheValue));
+};
+
+export const clearCache = (key: cacheKey) => {
+  localStorage.removeItem(key);
 };

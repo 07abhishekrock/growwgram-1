@@ -15,3 +15,5 @@ export const formatNumberString = (num: number, precision: number = 1) => {
 export const getTimeFrom = (time: string) => {
   return dayjs(time).fromNow();
 };
+
+export * from "./theme";

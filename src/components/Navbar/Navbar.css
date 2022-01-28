@@ -1,4 +1,4 @@
-.nav-wrapper {
+.nb23Wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,20 +7,27 @@
   height: var(--navbar-height);
   width: 100%;
 
-  background: var(--white);
-  border-bottom: 1.5px solid var(--extra-light-gray);
+  background: var(--card);
+  border-bottom: 1.5px solid var(--hover);
   z-index: 2;
 }
 
-.nav-container {
+.nb23Container {
+  display: flex;
+  justify-content: space-between;
+
   padding: 0 10px;
   max-width: 1024px;
   width: 100%;
 }
 
-.logo-link {
+.nb23Logo {
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: bold;
   color: var(--primary-color);
+}
+
+.nb23Toggle {
+  color: var(--text-color);
 }

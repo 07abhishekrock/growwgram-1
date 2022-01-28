@@ -16,7 +16,7 @@
 }
 
 .uli12Body:hover {
-  background: var(--extra-light-gray);
+  background: var(--hover);
   cursor: pointer;
 }
 
@@ -28,7 +28,7 @@
   height: 40px;
   width: 40px;
   border-radius: 50%;
-  border: 1px solid var(--extra-light-gray);
+  border: 1px solid var(--hover);
   overflow: hidden;
 }
 
@@ -52,7 +52,7 @@
   display: flex;
   font-size: var(--text-xxs);
   align-items: center;
-  color: var(--dark-gray);
+
   width: 100%;
 }
 
@@ -61,6 +61,8 @@
   align-items: center;
   min-width: 60px;
   padding: 2px 5px;
+
+  color: var(--dark-gray);
 }
 
 .uli12Icon {

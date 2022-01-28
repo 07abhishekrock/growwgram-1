@@ -40,6 +40,9 @@ export const userReducer: Reducer<UserState> = (
     case UserActionTypes.FETCH_ERROR: {
       return { ...state, loading: false, errors: action.payload };
     }
+    case UserActionTypes.RESET: {
+      return { ...state, ...initialState };
+    }
     default: {
       return state;
     }

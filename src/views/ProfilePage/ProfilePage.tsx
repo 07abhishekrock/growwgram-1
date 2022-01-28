@@ -46,8 +46,10 @@ const ProfilePage = () => {
 
   useEffect(() => {
     (async () => {
-      await dispatch(getUser(params.username!));
-      await dispatch(getUserFeeds(params.username!));
+      if (!user || user.username !== params.username) {
+        await dispatch(getUser(params.username!));
+        await dispatch(getUserFeeds(params.username!));
+      }
     })();
   }, []);
 
@@ -137,7 +139,7 @@ const ProfilePage = () => {
           )}
           <div className="pp12Stats">
             {stats.map((stat) => (
-              <p className="pp12StatContainer">
+              <p className="pp12StatContainer" key={stat.key}>
                 {user ? (
                   <>
                     <p className="pp12Stat">{stat.value}:</p>{" "}
@@ -152,24 +154,30 @@ const ProfilePage = () => {
         </div>
       </div>
       <hr className="pp12Line" />
-      <Tabs
-        selectedTab={tab.tabNum}
-        list={TabList}
-        onTabChange={handleTabChange}
-        disabled={!user}
-      />
-      {tab.tabNum === 0 ? (
-        <GridView handleClick={handleTabChangeWithScroll} />
-      ) : (
-        <div className="pp12ListContainer">
-          <FeedList
-            complete={complete || false}
-            data={photos}
-            loading={loading}
-            scrollAction={scrollAction}
-            scrollIdx={tab.scrollIdx}
+      {user ? (
+        <>
+          <Tabs
+            selectedTab={tab.tabNum}
+            list={TabList}
+            onTabChange={handleTabChange}
+            disabled={!user}
           />
-        </div>
+          {tab.tabNum === 0 ? (
+            <GridView handleClick={handleTabChangeWithScroll} />
+          ) : (
+            <div className="pp12ListContainer">
+              <FeedList
+                complete={complete || false}
+                data={photos}
+                loading={loading}
+                scrollAction={scrollAction}
+                scrollIdx={tab.scrollIdx}
+              />
+            </div>
+          )}
+        </>
+      ) : (
+        <h1>Loading...</h1>
       )}
     </div>
   );

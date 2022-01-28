@@ -18,7 +18,7 @@ const GridView: React.FC<Props> = ({ handleClick }) => {
   } = useSelector(selectUser);
 
   const { lastElement, setLastElement, unObserve } = useInfiniteScroll(() => {
-    console.log("Reached API call");
+    console.log("Reached API call", user);
     dispatch(getUserFeeds(user?.username!));
   });
 

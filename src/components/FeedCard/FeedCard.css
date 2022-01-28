@@ -1,5 +1,5 @@
 .fc12Body {
-  border: 1px solid var(--extra-light-gray);
+  border: 1px solid var(--hover);
   border-radius: 5px;
 
   max-width: 700px;
@@ -7,7 +7,7 @@
 
   margin-bottom: 20px;
   overflow: hidden;
-  background: var(--white);
+  background: var(--card);
 }
 
 .fc12ImageContainer {

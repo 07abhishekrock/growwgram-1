@@ -45,7 +45,7 @@ const FeedList: React.FC<Props> = ({
 
   return (
     <div className="fl14Body">
-      {data.length
+      {data.length > 0
         ? data.map((feed, idx) => {
             if (idx === data.length - 1)
               return (

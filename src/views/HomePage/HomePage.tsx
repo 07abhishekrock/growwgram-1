@@ -14,7 +14,7 @@ function HomePage() {
   } = useSelector(selectFeeds);
 
   useEffect(() => {
-    dispatch(getFeeds());
+    if (feeds.length == 0) dispatch(getFeeds());
   }, []);
 
   const scrollAction = () => {
