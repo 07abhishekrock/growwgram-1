@@ -32,6 +32,27 @@ export const feedReducer: Reducer<FeedState> = (
     case FeedActionTypes.FETCH_ERROR: {
       return { ...state, loading: false, errors: action.payload };
     }
+    case FeedActionTypes.RESET: {
+      return { ...state, ...initialState };
+    }
+    case FeedActionTypes.LIKE: {
+      const idx = action.payload.idx;
+      const newFeeds = state.data.feeds.map((feed, i) =>
+        idx === i
+          ? { ...feed, likes: feed.likes + 1, liked: true }
+          : { ...feed }
+      );
+      return { ...state, data: { ...state.data, feeds: newFeeds } };
+    }
+    case FeedActionTypes.UNLIKE: {
+      const idx = action.payload.idx;
+      const newFeeds = state.data.feeds.map((feed, i) =>
+        idx === i
+          ? { ...feed, likes: feed.likes - 1, liked: false }
+          : { ...feed }
+      );
+      return { ...state, data: { ...state.data, feeds: newFeeds } };
+    }
     default: {
       return state;
     }

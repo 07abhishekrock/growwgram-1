@@ -39,7 +39,7 @@
 
 .theme-toggle {
   --size: 2rem;
-  --icon-fill: #454d54;
+  --icon-fill: var(--dark-gray);
   --icon-fill-hover: #22262a;
   background: none;
   border: none;
@@ -60,7 +60,7 @@
 }
 
 :root[data-theme="dark"] .theme-toggle {
-  --icon-fill: #abb3ba;
+  --icon-fill: var(--light-gray);
   --icon-fill-hover: #e2e6e9;
 }
 @media (hover: none) {

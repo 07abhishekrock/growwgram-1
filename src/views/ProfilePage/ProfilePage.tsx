@@ -23,9 +23,6 @@ const TabList = [
 ];
 
 const stats = [
-  { key: "total_likes", value: "Likes" },
-  { key: "total_photos", value: "Photos" },
-  { key: "downloads", value: "Downloads" },
   { key: "followers_count", value: "Followers" },
   { key: "following_count", value: "Following" },
 ];

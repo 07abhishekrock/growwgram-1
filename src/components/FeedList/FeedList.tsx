@@ -57,7 +57,7 @@ const FeedList: React.FC<Props> = ({
                     setLastElement(el);
                   }}
                 >
-                  <FeedCard feed={feed} />
+                  <FeedCard idx={idx} feed={feed} />
                 </div>
               );
             return (
@@ -68,7 +68,7 @@ const FeedList: React.FC<Props> = ({
                   refs[idx].current = el;
                 }}
               >
-                <FeedCard feed={feed} key={idx} />
+                <FeedCard idx={idx} feed={feed} key={idx} />
               </div>
             );
           })

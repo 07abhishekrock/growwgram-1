@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-
 import { FeedList, SuggestedUsers } from "components";
+import React, { useEffect } from "react";
+import { AiOutlineReload } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
 import { getFeeds, selectFeeds } from "store/feed";
 import "./homePage.css";
 
@@ -22,18 +22,27 @@ function HomePage() {
     dispatch(getFeeds());
   };
 
+  const reloadPosts = () => {
+    dispatch(getFeeds(true));
+  };
+
   return (
     <div className="hp12Body">
-      <div className="hp12FeedContainer">
-        <FeedList
-          complete={complete || false}
-          data={feeds}
-          loading={loading}
-          scrollAction={scrollAction}
-        />
-      </div>
-      <div className="hp12SuggestedContainer">
-        <SuggestedUsers />
+      <button className="hp12Button" onClick={reloadPosts}>
+        <AiOutlineReload className="hp12Icon" /> Reload posts
+      </button>
+      <div className="hp12Wrapper">
+        <div className="hp12FeedContainer">
+          <FeedList
+            complete={complete || false}
+            data={feeds}
+            loading={loading}
+            scrollAction={scrollAction}
+          />
+        </div>
+        <div className="hp12SuggestedContainer">
+          <SuggestedUsers />
+        </div>
       </div>
     </div>
   );

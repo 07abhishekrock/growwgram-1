@@ -5,6 +5,7 @@ export interface Feed {
   color: string;
   downloads: number;
   likes: number;
+  liked: boolean;
   alt_description: string;
   description: string;
   location: {

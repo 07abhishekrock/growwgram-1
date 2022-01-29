@@ -16,4 +16,24 @@ export const getTimeFrom = (time: string) => {
   return dayjs(time).fromNow();
 };
 
+export const copyToClipboard = async (str: string) => {
+  try {
+    if (navigator && navigator.clipboard && navigator.clipboard.writeText)
+      await navigator.clipboard.writeText(str);
+    else {
+      const el = document.createElement("textarea");
+      el.value = str;
+      el.setAttribute("readonly", "");
+      el.style.position = "absolute";
+      el.style.left = "-9999px";
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand("copy");
+      document.body.removeChild(el);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export * from "./theme";

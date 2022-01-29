@@ -8,12 +8,23 @@ const getTopUsers = (feeds: Feed[]) => {
 };
 
 export const getFeeds =
-  (): AppThunk => async (dispatch: Dispatch<FeedAction>, getState) => {
+  (hardRefresh?: boolean): AppThunk =>
+  async (dispatch: Dispatch<FeedAction>, getState) => {
     try {
+      if (hardRefresh) {
+        dispatch({ type: FeedActionTypes.RESET });
+      }
+
       const currentState = getState();
       const currentPage = currentState.feed.page;
+
+      console.log(currentState.feed);
+
       dispatch({ type: FeedActionTypes.FETCH_REQUEST });
-      const { feeds, page } = await fetchFeeds<Feed[]>(currentPage + 1);
+      const { feeds, page } = await fetchFeeds<Feed[]>(
+        currentPage + 1,
+        hardRefresh
+      );
       dispatch({
         type: FeedActionTypes.FETCH_SUCCESS,
         payload: {

@@ -6,15 +6,37 @@ import {
 } from "react-icons/ai";
 
 import "./FeedCard.css";
-import { Feed } from "store/feed";
+import { Feed, FeedActionTypes } from "store/feed";
 import { ImageRenderer, UserListItem } from "..";
-import { getTimeFrom } from "utils/helpers";
+import { copyToClipboard, getTimeFrom } from "utils/helpers";
+import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
 
 interface Props {
   feed: Feed;
+  idx: number;
 }
 
-const FeedCard: React.FC<Props> = ({ feed }) => {
+const FeedCard: React.FC<Props> = ({ feed, idx }) => {
+  const dispatch = useDispatch();
+
+  const copyLink = async () => {
+    try {
+      await copyToClipboard(feed.links.html);
+      toast("Copied to clipboard!");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleClick = () => {
+    if (feed.liked) {
+      dispatch({ type: FeedActionTypes.UNLIKE, payload: { idx } });
+    } else {
+      dispatch({ type: FeedActionTypes.LIKE, payload: { idx } });
+    }
+  };
+
   return (
     <div className="fc12Body">
       <div className="fc12ImageContainer">
@@ -22,14 +44,24 @@ const FeedCard: React.FC<Props> = ({ feed }) => {
       </div>
       <div className="fc12Content">
         <div className="fc12Stats">
-          <p>
-            <AiFillHeart size={22} className="fc12Icon" />
-            {feed.likes.toLocaleString("en-IN")}
-          </p>
-          <a href={feed.links.html} title="Photo Link">
+          <div className={`fc12LikeContainer ${feed.liked && "fc12Liked"} `}>
+            <button className="fc12IconContainer" onClick={handleClick}>
+              <AiFillHeart size={22} className="fc12Icon" />
+            </button>
+            <p>{feed.likes.toLocaleString("en-IN")}</p>
+          </div>
+          <button
+            className="fc12IconContainer"
+            title="Copy to Clipboard"
+            onClick={copyLink}
+          >
             <AiOutlineLink size={24} className="fc12Icon" />
-          </a>
-          <a href={feed.links.download} title="Download">
+          </button>
+          <a
+            href={feed.urls.regular}
+            className="fc12IconContainer"
+            title="Download"
+          >
             <AiOutlineCloudDownload
               size={24}
               className="fc12Icon"

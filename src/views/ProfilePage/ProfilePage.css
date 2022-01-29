@@ -81,16 +81,12 @@
   align-items: center;
   min-width: 60px;
 
-  margin: 0px 5px;
+  margin: 0px 10px;
 
   color: var(--text-color);
 }
 
 .pp12Stat {
-  font-size: var(--text-xxs);
-  font-weight: 600;
-  color: var(--dark-gray);
-
   margin-right: 5px;
 }
 
@@ -114,9 +110,7 @@
   .pp12ImageWrapper {
     margin-bottom: 0px;
   }
-  .pp12Stats {
-    justify-content: space-between;
-  }
+
   .pp12Name h1 {
     font-size: var(--text-xxxxl);
   }
@@ -128,5 +122,8 @@
   }
   .pp12Socials {
     margin-top: 0px;
+  }
+  .pp12bio  {
+    width: 50%;
   }
 }

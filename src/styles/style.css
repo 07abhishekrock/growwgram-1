@@ -73,3 +73,12 @@ h2,
 a {
   color: var(--text-color);
 }
+
+button {
+  background: transparent;
+  border: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
