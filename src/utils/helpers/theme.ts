@@ -1,4 +1,4 @@
-import { COLORS } from "utils/constants";
+import { COLORS } from "styles";
 
 function getInitialColorMode() {
   const persistedColorPreference = window.localStorage.getItem("color-mode");

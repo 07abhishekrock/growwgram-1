@@ -25,6 +25,8 @@ export interface Feed {
     self: string;
   };
   user: SuggestedUser;
+  height: number;
+  width: number;
 }
 
 export interface SuggestedUser {

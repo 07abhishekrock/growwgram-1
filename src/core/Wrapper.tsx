@@ -4,9 +4,13 @@ import { Provider } from "react-redux";
 import { BrowserRouter, Route, Routes, Outlet } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Modal from "react-modal";
+
 import { store } from "store";
 import "styles/style.css";
 import { HomePage, ProfilePage } from "views";
+
+Modal.setAppElement("#root");
 
 function Wrapper() {
   return (

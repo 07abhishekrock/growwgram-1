@@ -6,10 +6,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 
 import { getUser, getUserFeeds, selectUser } from "store/user";
-import { ImageRenderer, Tabs } from "components/reusables";
+import { ImageRenderer, Skeleton, Tabs } from "common/reusables";
 import { formatNumberString } from "utils/helpers";
 import "./ProfilePage.css";
-import { FeedList, GridView, Skeleton } from "components";
+import { FeedList, GridView } from "components";
 
 const TabList = [
   {

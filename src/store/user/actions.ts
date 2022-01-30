@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import { Dispatch } from "redux";
 import { fetchUserDetails, fetchUserPhotos } from "utils/api";
 import { User, UserAction, UserActionTypes } from ".";
@@ -22,6 +23,7 @@ export const getUser =
       });
     } catch (error: any) {
       console.log(error);
+      toast("Something went wrong");
       dispatch({ type: UserActionTypes.FETCH_ERROR, payload: error });
     }
   };
@@ -58,6 +60,7 @@ export const getUserFeeds =
       });
     } catch (error: any) {
       console.log(error);
+      toast("Something went wrong");
       dispatch({ type: UserActionTypes.FETCH_ERROR, payload: error });
     }
   };

@@ -1,5 +1,5 @@
+import { Skeleton } from "common/reusables";
 import React from "react";
-import { Skeleton } from "..";
 import "./UserListItem.css";
 
 const UserListItem: React.FC = () => {

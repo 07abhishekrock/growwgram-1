@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo } from "react";
 import { Feed } from "store";
-import { useInfiniteScroll } from "utils/hooks";
+import { useInfiniteScroll } from "common/hooks";
 import { FeedCard, FeedSkeleton } from "..";
 import "./FeedList.css";
 

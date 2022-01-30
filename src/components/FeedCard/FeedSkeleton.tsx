@@ -1,5 +1,6 @@
+import { Skeleton } from "common/reusables";
 import React from "react";
-import { Skeleton, UserListItemSkeleton } from "..";
+import { UserListItemSkeleton } from "..";
 import "./FeedCard.css";
 
 const FeedSkeleton: React.FC = () => {

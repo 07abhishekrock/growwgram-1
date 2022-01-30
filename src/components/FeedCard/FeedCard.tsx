@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   AiFillHeart,
   AiOutlineLink,
   AiOutlineCloudDownload,
 } from "react-icons/ai";
+import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import Modal from "react-modal";
 
 import "./FeedCard.css";
 import { Feed, FeedActionTypes } from "store/feed";
-import { ImageRenderer, UserListItem } from "..";
+import { UserListItem } from "..";
 import { copyToClipboard, getTimeFrom } from "utils/helpers";
-import { toast } from "react-toastify";
-import { useDispatch } from "react-redux";
+import { IoCloseOutline } from "react-icons/io5";
+import { ImageRenderer } from "common/reusables";
 
 interface Props {
   feed: Feed;
@@ -19,6 +22,8 @@ interface Props {
 
 const FeedCard: React.FC<Props> = ({ feed, idx }) => {
   const dispatch = useDispatch();
+
+  const [open, setOpen] = useState(false);
 
   const copyLink = async () => {
     try {
@@ -37,9 +42,13 @@ const FeedCard: React.FC<Props> = ({ feed, idx }) => {
     }
   };
 
+  const closeModal = () => {
+    setOpen(false);
+  };
+
   return (
     <div className="fc12Body">
-      <div className="fc12ImageContainer">
+      <div className="fc12ImageContainer" onClick={() => setOpen(true)}>
         <ImageRenderer url={feed.urls.regular} thumb={feed.urls.thumb} />
       </div>
       <div className="fc12Content">
@@ -76,6 +85,15 @@ const FeedCard: React.FC<Props> = ({ feed, idx }) => {
 
         <UserListItem user={feed.user as any} />
       </div>
+      <Modal
+        isOpen={open}
+        onRequestClose={closeModal}
+        className="fc12Modal"
+        overlayClassName="fc12Overlay"
+      >
+        <IoCloseOutline size={30} className="fc12Close" onClick={closeModal} />
+        <ImageRenderer url={feed.urls.raw} thumb={feed.urls.small} />
+      </Modal>
     </div>
   );
 };

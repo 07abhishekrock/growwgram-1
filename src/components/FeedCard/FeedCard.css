@@ -93,6 +93,43 @@ a {
   color: var(--like);
 }
 
+.fc12Modal {
+  position: absolute;
+  height:90vh;
+  width:90vw;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.fc12Overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  z-index: 5;
+  background-color: rgba(0,0,0,0.3);
+}
+
+.fc12Close {
+  position: absolute;
+  z-index: 10;
+  right: 0;
+  cursor: pointer;
+}
+
+.fc12ModalImage {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
 @media (min-width: 576px) {
   .fc12Description {
     flex-direction: row;

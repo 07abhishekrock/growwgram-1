@@ -1,4 +1,6 @@
 import { Dispatch } from "redux";
+import { toast } from "react-toastify";
+
 import { fetchFeeds } from "utils";
 import { Feed, FeedActionTypes } from ".";
 import { AppThunk, FeedAction } from "..";
@@ -38,6 +40,7 @@ export const getFeeds =
       });
     } catch (error: any) {
       console.log(error);
+      toast("Something went wrong");
       dispatch({ type: FeedActionTypes.FETCH_ERROR, payload: error });
     }
   };
