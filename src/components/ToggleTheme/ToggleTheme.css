@@ -68,3 +68,10 @@
     --size: 48px;
   }
 }
+
+@media (max-width: 576px) {
+  .theme-toggle > svg {
+    inline-size: 50%;
+    block-size: 50%;
+  }
+}

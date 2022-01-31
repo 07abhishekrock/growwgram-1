@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./Skeleton.css";
+import "./skeleton.css";
 
 interface Props
   extends React.DetailedHTMLProps<

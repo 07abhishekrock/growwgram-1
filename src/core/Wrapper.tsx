@@ -8,7 +8,7 @@ import Modal from "react-modal";
 
 import { store } from "store";
 import "styles/style.css";
-import { HomePage, ProfilePage } from "views";
+import { HomePage, NotFoundPage, ProfilePage } from "views";
 
 Modal.setAppElement("#root");
 
@@ -20,6 +20,7 @@ function Wrapper() {
         <div className="container">
           <div className="routes-container">
             <Routes>
+              <Route path="*" element={<NotFoundPage />} />
               <Route
                 path="user"
                 element={

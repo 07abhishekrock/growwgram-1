@@ -25,6 +25,7 @@ module.exports = {
 
   resolve: {
     alias: {
+      assets: path.resolve(__dirname, "src/assets/"),
       core: path.resolve(__dirname, "src/core/"),
       common: path.resolve(__dirname, "src/common/"),
       components: path.resolve(__dirname, "src/components/"),

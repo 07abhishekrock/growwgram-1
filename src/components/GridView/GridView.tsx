@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import { getUserFeeds, selectUser } from "store/user";
 import { useInfiniteScroll } from "common/hooks";
-import "./GridView.css";
 import { ImageRenderer, Skeleton } from "common/reusables";
+import "./gridView.css";
 
 interface Props {
   handleClick: (idx: number) => void;

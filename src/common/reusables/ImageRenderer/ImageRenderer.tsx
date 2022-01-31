@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { useIntersection } from "common/hooks";
-import "./ImageRenderer.css";
+import "./imageRenderer.css";
 
 interface Props {
   url: string;

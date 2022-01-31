@@ -56,10 +56,22 @@
   margin-top: 10px;
 }
 
+.pp12Socials a {
+  padding: 5px;
+  transition: background 150ms linear;
+  border-radius: 50%;
+}
+
+.pp12Socials a:hover {
+  background: var(--hover);
+}
+
 .pp12Icon {
   color: var(--dark-gray);
-  margin: 0 5px;
+  
 }
+
+
 
 .pp12bio {
   margin: 20px 0px;

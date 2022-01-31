@@ -1,11 +1,12 @@
 import React from "react";
-import { updateThemeColors } from "utils/helpers";
-import { ToggleTheme } from "..";
 import { Link } from "react-router-dom";
-import "./Navbar.css";
 import { AiFillHome } from "react-icons/ai";
 import { FaUser } from "react-icons/fa";
 import { MdExplore } from "react-icons/md";
+
+import { updateThemeColors } from "utils/helpers";
+import { ToggleTheme } from "..";
+import "./navbar.css";
 
 const Navbar = () => {
   const toggleColorMode = () => {
@@ -27,8 +28,8 @@ const Navbar = () => {
         <div className="nb23Toggle" onClick={toggleColorMode}>
           <ToggleTheme />
         </div>
-        <AiFillHome size={22} className="nb23Icon" />
-        <MdExplore size={24} className="nb23Icon" />
+        <AiFillHome size={22} className="nb23Icon nb23IconHidden" />
+        <MdExplore size={24} className="nb23Icon nb23IconHidden" />
         <div className="nb23Profile nb23Icon">
           <FaUser size={20} />
         </div>

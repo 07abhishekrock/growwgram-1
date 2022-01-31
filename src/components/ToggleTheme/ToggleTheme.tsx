@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./ToggleTheme.css";
+import "./toggleTheme.css";
 
 const ToggleTheme = () => {
   return (

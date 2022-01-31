@@ -2,24 +2,26 @@
   display: flex;
   justify-content: center;
 
+  margin-top: 10px;
+
   width: 100%;
 }
 
 .t12Track {
   display: flex;
   justify-content: center;
-
-  padding: 5px 0 3px 0px;
+  height: 1px;
+  background: var(--light-gray);
+  position: relative;
 }
 
-.t12Ball {
-  height: 3px;
-  width: 3px;
-  margin-left: 20px;
-  border-radius: 50%;
+.t12Line {
+  position: absolute;
+  height: 2px;
+  width: 80px;
   background: var(--primary-color);
   /* transform: translateX(50%); */
-  transition: transform 300ms ease;
+  transition: transform 200ms ease-out;
 }
 
 .left {

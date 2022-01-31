@@ -1,6 +1,7 @@
-import { Skeleton } from "common/reusables";
 import React from "react";
-import "./UserListItem.css";
+
+import { Skeleton } from "common/reusables";
+import "./userListItem.css";
 
 const UserListItem: React.FC = () => {
   return (

@@ -7,12 +7,12 @@ import {
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import Modal from "react-modal";
-
-import "./FeedCard.css";
-import { Feed, FeedActionTypes } from "store/feed";
-import { UserListItem } from "..";
-import { copyToClipboard, getTimeFrom } from "utils/helpers";
 import { IoCloseOutline } from "react-icons/io5";
+
+import "./feedCard.css";
+import { Feed, FeedActionTypes } from "store/feed";
+import { UserListItem } from "components";
+import { copyToClipboard, getTimeFrom } from "utils/helpers";
 import { ImageRenderer } from "common/reusables";
 
 interface Props {

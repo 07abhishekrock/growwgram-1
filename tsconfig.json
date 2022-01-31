@@ -1,58 +1,29 @@
 {
-    "extends": "@groww-tech/tsconfig",
-    "compilerOptions": {
-      "target": "esnext", // Specify ECMAScript target version
-      "lib": [
-        "dom",
-        "dom.iterable",
-        "esnext"
-      ], // List of library files to be included in the compilation
-      "typeRoots": [
-        "node_modules/@types",
-      ],
-      "allowJs": true, // Allow JavaScript files to be compiled
-      "checkJs": false, // Report errors in .js files.
-      "noEmit": true, // TS Compiler will not emit JS files
-      "baseUrl": "src",
-      "paths": {
-        "common/*": [
-          "common/*"
-        ],
-        "components/*": [
-          "components/*"
-        ],
-        "ui/*": [
-          "ui/*"
-        ],
-        "config/*": [
-          "config/*"
-        ],
-        "store/*": [
-          "store/*"
-        ],
-        "utils/*": [
-          "utils/*"
-        ],
-        "routes": [
-          "routes/*"
-        ],
-        "router/*": [
-          "router/*"
-        ],
-        "views/*": [
-          "views/*"
-        ],
-        "styles/*": [
-          "styles/*"
-        ]
-      }
-    },
-    "include": [
-      "src/**/*" // *** The files TypeScript should type check ***
-    ],
-    "exclude": [
-      "node_modules",
-      "build"
-    ], // *** The files to not type check ***
-  }
-  
+  "extends": "@groww-tech/tsconfig",
+  "compilerOptions": {
+    "target": "esnext", // Specify ECMAScript target version
+    "lib": ["dom", "dom.iterable", "esnext"], // List of library files to be included in the compilation
+    "typeRoots": ["node_modules/@types"],
+    "allowJs": true, // Allow JavaScript files to be compiled
+    "checkJs": false, // Report errors in .js files.
+    "noEmit": true, // TS Compiler will not emit JS files
+    "baseUrl": "src",
+    "paths": {
+      "assets/*": ["assets/*"],
+      "common/*": ["common/*"],
+      "components/*": ["components/*"],
+      "ui/*": ["ui/*"],
+      "config/*": ["config/*"],
+      "store/*": ["store/*"],
+      "utils/*": ["utils/*"],
+      "routes": ["routes/*"],
+      "router/*": ["router/*"],
+      "views/*": ["views/*"],
+      "styles/*": ["styles/*"]
+    }
+  },
+  "include": [
+    "src/**/*" // *** The files TypeScript should type check ***
+  ],
+  "exclude": ["node_modules", "build"] // *** The files to not type check ***
+}

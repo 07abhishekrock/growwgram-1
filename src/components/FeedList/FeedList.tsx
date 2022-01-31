@@ -1,8 +1,9 @@
 import React, { useEffect, useMemo } from "react";
+
 import { Feed } from "store";
 import { useInfiniteScroll } from "common/hooks";
-import { FeedCard, FeedSkeleton } from "..";
-import "./FeedList.css";
+import { FeedCard, FeedSkeleton } from "components";
+import "./feedList.css";
 
 interface Props {
   scrollAction: () => void;

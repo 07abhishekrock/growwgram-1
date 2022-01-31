@@ -1,4 +1,4 @@
-import { ProfilePage, HomePage } from "views";
+import { ProfilePage, HomePage, NotFoundPage } from "views";
 
 const routes = [
   {
@@ -8,6 +8,10 @@ const routes = [
   {
     path: "/",
     Component: HomePage,
+  },
+  {
+    path: "*",
+    Component: NotFoundPage,
   },
 ];
 

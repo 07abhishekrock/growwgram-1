@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./Tabs.css";
+import "./tabs.css";
 
 interface Props {
   selectedTab: number;
@@ -18,7 +18,7 @@ const Tabs: React.FC<Props> = ({
   return (
     <div>
       <div className="t12Track">
-        <div className={`t12Ball ${selectedTab === 0 ? "left" : "right"}`} />
+        <div className={`t12Line ${selectedTab === 0 ? "left" : "right"}`} />
       </div>
       <div className="t12Body">
         {list.map(({ Icon, name }, i) => (

@@ -1,9 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import "./SuggestedUsers.css";
 import { selectFeeds } from "store/feed";
-import { UserListItem, UserListItemSkeleton } from "..";
+import { UserListItem, UserListItemSkeleton } from "components";
+import "./suggestedUsers.css";
 
 const SuggestedUsers = () => {
   const { data } = useSelector(selectFeeds);

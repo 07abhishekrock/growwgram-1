@@ -8,8 +8,8 @@ import { useParams } from "react-router";
 import { getUser, getUserFeeds, selectUser } from "store/user";
 import { ImageRenderer, Skeleton, Tabs } from "common/reusables";
 import { formatNumberString } from "utils/helpers";
-import "./ProfilePage.css";
 import { FeedList, GridView } from "components";
+import "./profilePage.css";
 
 const TabList = [
   {
@@ -102,16 +102,20 @@ const ProfilePage = () => {
             <div className="pp12Socials">
               {user ? (
                 <>
-                  <a
-                    href={`https://instagram.com/${user.social.instagram_username}`}
-                  >
-                    <AiFillInstagram size={26} className="pp12Icon" />
-                  </a>
-                  <a
-                    href={`https://twitter.com/${user.social.twitter_username}`}
-                  >
-                    <AiFillTwitterCircle size={26} className="pp12Icon" />
-                  </a>
+                  {user.social.instagram_username && (
+                    <a
+                      href={`https://instagram.com/${user.social.instagram_username}`}
+                    >
+                      <AiFillInstagram size={26} className="pp12Icon" />
+                    </a>
+                  )}
+                  {user.social.twitter_username && (
+                    <a
+                      href={`https://twitter.com/${user.social.twitter_username}`}
+                    >
+                      <AiFillTwitterCircle size={26} className="pp12Icon" />
+                    </a>
+                  )}
                 </>
               ) : (
                 <>
@@ -150,7 +154,6 @@ const ProfilePage = () => {
           </div>
         </div>
       </div>
-      <hr className="pp12Line" />
       {user ? (
         <>
           <Tabs

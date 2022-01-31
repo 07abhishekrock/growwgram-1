@@ -1,11 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { AiFillHeart } from "react-icons/ai";
 import { IoMdPhotos } from "react-icons/io";
 
-import "./UserListItem.css";
 import { SuggestedUser } from "store/feed";
 import { formatNumberString } from "utils/helpers";
-import { Link } from "react-router-dom";
+import "./userListItem.css";
 
 interface Props {
   user: SuggestedUser;
