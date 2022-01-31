@@ -1,18 +1,23 @@
-import { Navbar } from "components";
-import React from "react";
+import React, { useLayoutEffect } from "react";
+import Modal from "react-modal";
 import { Provider } from "react-redux";
-import { BrowserRouter, Route, Routes, Outlet } from "react-router-dom";
+import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Modal from "react-modal";
 
 import { store } from "store";
-import "styles/style.css";
 import { HomePage, NotFoundPage, ProfilePage } from "views";
+import { Navbar } from "components";
+import { initializeTheme } from "utils";
+import "styles/style.css";
 
 Modal.setAppElement("#root");
 
 function Wrapper() {
+  useLayoutEffect(() => {
+    initializeTheme();
+  }, []);
+
   return (
     <Provider store={store}>
       <BrowserRouter>
