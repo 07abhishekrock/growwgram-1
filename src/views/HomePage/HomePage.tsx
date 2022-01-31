@@ -29,7 +29,7 @@ function HomePage() {
   return (
     <div className="hp12Body">
       <button className="hp12Button" onClick={reloadPosts}>
-        <AiOutlineReload className="hp12Icon" /> Reload posts
+        <AiOutlineReload className="hp12Icon" /> Refresh Feed
       </button>
       <div className="hp12Wrapper">
         <div className="hp12FeedContainer">

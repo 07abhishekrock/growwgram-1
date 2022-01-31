@@ -6,4 +6,5 @@ export { default as FeedCard } from "./FeedCard/FeedCard";
 export { default as FeedSkeleton } from "./FeedCard/FeedSkeleton";
 export { default as UserListItemSkeleton } from "./UserListItem/UserListItemSkeleton";
 export { default as GridView } from "./GridView/GridView";
+export { default as GridViewSkeleton } from "./GridView/GridViewSkeleton";
 export { default as ToggleTheme } from "./ToggleTheme/ToggleTheme";

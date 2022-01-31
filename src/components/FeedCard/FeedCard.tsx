@@ -53,8 +53,11 @@ const FeedCard: React.FC<Props> = ({ feed, idx }) => {
       </div>
       <div className="fc12Content">
         <div className="fc12Stats">
-          <div className={`fc12LikeContainer ${feed.liked && "fc12Liked"} `}>
-            <button className="fc12IconContainer" onClick={handleClick}>
+          <div className={`fc12LikeContainer`}>
+            <button
+              className={`fc12IconContainer ${feed.liked && "fc12Liked"}`}
+              onClick={handleClick}
+            >
               <AiFillHeart size={22} className="fc12Icon" />
             </button>
             <p>{feed.likes.toLocaleString("en-IN")}</p>

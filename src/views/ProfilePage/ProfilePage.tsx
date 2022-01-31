@@ -8,7 +8,7 @@ import { useParams } from "react-router";
 import { getUser, getUserFeeds, selectUser } from "store/user";
 import { ImageRenderer, Skeleton, Tabs } from "common/reusables";
 import { formatNumberString } from "utils/helpers";
-import { FeedList, GridView } from "components";
+import { FeedList, GridView, GridViewSkeleton } from "components";
 import "./profilePage.css";
 
 const TabList = [
@@ -177,7 +177,7 @@ const ProfilePage = () => {
           )}
         </>
       ) : (
-        <h1>Loading...</h1>
+        <GridViewSkeleton />
       )}
     </div>
   );

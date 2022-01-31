@@ -91,12 +91,12 @@ a {
   color: var(--light-gray);
 }
 
-.fc12LikeContainer .fc12IconContainer,.fc12LikeContainer p {
+.fc12LikeContainer .fc12IconContainer,.fc12IconContainer, .fc12LikeContainer p {
   color: var(--dark-gray);
 }
 
 
-.fc12Liked .fc12IconContainer,.fc12Liked p {
+.fc12Liked .fc12Icon {
   color: var(--like);
 }
 
