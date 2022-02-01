@@ -28,7 +28,9 @@ const Navbar = () => {
         <div className="nb23Toggle" onClick={toggleColorMode}>
           <ToggleTheme />
         </div>
-        <AiFillHome size={22} className="nb23Icon nb23IconHidden" />
+        <Link to="/" className="nb23Icon nb23IconHidden">
+          <AiFillHome size={22} />
+        </Link>
         <MdExplore size={24} className="nb23Icon nb23IconHidden" />
         <div className="nb23Profile nb23Icon">
           <FaUser size={20} />

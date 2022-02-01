@@ -65,12 +65,8 @@ const ImagePreview = ({ closeModal, feed }: Props) => {
             <AiOutlinePlus />
           </button>
         </div>
-        <button className="ip46Icon">
-          <IoCloseOutline
-            size={30}
-            className="ip46Close"
-            onClick={closeModal}
-          />
+        <button className="ip46Icon" onClick={closeModal}>
+          <IoCloseOutline size={30} className="ip46Close" />
         </button>
       </div>
       <div

@@ -8,10 +8,12 @@
 .gv12Image {
   padding: 5;
   height: 250px;
+  width: 100%;
+  
   transition: filter 100ms linear;
 }
 
-.gv12Image:hover {
+.gv12Image:hover, .gv12Image:focus {
   cursor: pointer;
   filter: brightness(0.8);
   transition: filter 250ms linear;

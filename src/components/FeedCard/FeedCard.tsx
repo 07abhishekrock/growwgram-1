@@ -48,9 +48,9 @@ const FeedCard: React.FC<Props> = ({ feed, idx }) => {
 
   return (
     <div className="fc12Body">
-      <div className="fc12ImageContainer" onClick={() => setOpen(true)}>
+      <button className="fc12ImageContainer" onClick={() => setOpen(true)}>
         <ImageRenderer url={feed.urls.regular} thumb={feed.urls.thumb} />
-      </div>
+      </button>
       <div className="fc12Content">
         <div className="fc12Stats">
           <div className={`fc12LikeContainer`}>
@@ -73,6 +73,7 @@ const FeedCard: React.FC<Props> = ({ feed, idx }) => {
             href={feed.urls.regular}
             className="fc12IconContainer"
             title="Download"
+            style={{ margin: "0px" }}
           >
             <AiOutlineCloudDownload
               size={24}
@@ -82,7 +83,7 @@ const FeedCard: React.FC<Props> = ({ feed, idx }) => {
           </a>
         </div>
         <div className="fc12Description">
-          <p>{feed.description}</p>
+          <p>{feed.description ?? "Added a new photo"}</p>
           <p className="fc12Time">{getTimeFrom(feed.created_at)}</p>
         </div>
 

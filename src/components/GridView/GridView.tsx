@@ -33,7 +33,7 @@ const GridView: React.FC<Props> = ({ handleClick }) => {
         ? photos.map((photo, i) => {
             if (i === photos.length - 1)
               return (
-                <div
+                <button
                   className="gv12Image"
                   ref={setLastElement}
                   key={i}
@@ -43,15 +43,19 @@ const GridView: React.FC<Props> = ({ handleClick }) => {
                     thumb={photo.urls.thumb}
                     url={photo.urls.regular}
                   />
-                </div>
+                </button>
               );
             return (
-              <div key={i} className="gv12Image" onClick={() => handleClick(i)}>
+              <button
+                key={i}
+                className="gv12Image"
+                onClick={() => handleClick(i)}
+              >
                 <ImageRenderer
                   thumb={photo.urls.thumb}
                   url={photo.urls.regular}
                 />
-              </div>
+              </button>
             );
           })
         : Array.from(Array(12)).map((_, i) => (

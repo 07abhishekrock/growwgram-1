@@ -13,11 +13,12 @@
 .fc12ImageContainer {
   overflow: hidden;
   height: 500px;
+  width: 100%;
 
   transition: filter 150ms linear;
 }
 
-.fc12ImageContainer:hover {
+.fc12ImageContainer:hover,.fc12ImageContainer:focus {
   cursor: zoom-in;
   filter: brightness(0.8);
 }
@@ -71,10 +72,6 @@ a {
   background: var(--hover);
 }
 
-
-/* .fc12Image {
-  height: 100%;
-} */
 
 .fc12Description {
   margin: 10px 0;

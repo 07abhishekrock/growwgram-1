@@ -104,6 +104,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: "./src/index.html",
+      favicon: "./src/assets/favicon.ico",
     }),
     new AssetsPlugin({
       filename: "assetsManifest.json",
