@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 
 import { getUser, getUserFeeds, selectUser } from "store/user";
-import { ImageRenderer, Skeleton, Tabs } from "common/reusables";
+import { Error, ImageRenderer, Skeleton, Tabs } from "common/reusables";
 import { formatNumberString } from "utils/helpers";
 import { FeedList, GridView, GridViewSkeleton } from "components";
 import "./profilePage.css";
@@ -33,6 +33,7 @@ const ProfilePage = () => {
     data: { user, photos },
     loading,
     complete,
+    errors,
   } = useSelector(selectUser);
   const dispatch = useDispatch();
 
@@ -59,9 +60,14 @@ const ProfilePage = () => {
   };
 
   const scrollAction = () => {
-    console.log("Reached API call");
     dispatch(getUserFeeds(params.username!));
   };
+
+  if (errors && (errors as any).status === 404) {
+    return (
+      <Error message="No such user exists" style={{ marginTop: "30px" }} />
+    );
+  }
 
   return (
     <div className="pp12Body">
@@ -139,8 +145,12 @@ const ProfilePage = () => {
             />
           )}
           <div className="pp12Stats">
-            {stats.map((stat) => (
-              <p className="pp12StatContainer" key={stat.key}>
+            {stats.map((stat, i) => (
+              <div
+                className="pp12StatContainer"
+                style={i === stats.length - 1 ? { marginRight: "0px" } : {}}
+                key={stat.key}
+              >
                 {user ? (
                   <>
                     <p className="pp12Stat">{stat.value}:</p>{" "}
@@ -149,7 +159,7 @@ const ProfilePage = () => {
                 ) : (
                   <Skeleton style={{ height: "30px", width: "80px" }} />
                 )}
-              </p>
+              </div>
             ))}
           </div>
         </div>

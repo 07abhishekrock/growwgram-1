@@ -1,0 +1,31 @@
+.e33Container {
+    display: flex;
+    align-items: center;
+    color: var(--danger);
+
+    padding: 10px;
+    background: var(--light-danger);
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.e33Message {
+    padding: 0px 10px;
+    font-size: var(--text-sm);
+    font-weight: 600;
+
+    color: var(--danger);
+}
+
+.e33Button {
+    padding: 5px 10px;
+    margin-left: auto;
+    color: var(--danger);
+    border-radius: 4px;
+
+    transition: background 150ms;
+}
+
+.e33Button:hover, .e33Button:focus {
+    background: var(--hover-danger);
+}

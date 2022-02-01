@@ -38,6 +38,6 @@ export interface UserState {
     photos: Feed[];
   };
   complete?: boolean;
-  errors?: string;
+  errors?: Error | null;
   page: number;
 }

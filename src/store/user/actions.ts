@@ -9,7 +9,7 @@ export const getUser =
   async (dispatch: Dispatch<UserAction>, getState) => {
     try {
       const currentState = getState();
-      if (currentState.user.data.user?.username !== username && username) {
+      if (currentState.user.data.user?.username !== username) {
         dispatch({ type: UserActionTypes.RESET });
       }
 
@@ -23,8 +23,19 @@ export const getUser =
       });
     } catch (error: any) {
       console.log(error);
-      toast("Something went wrong");
-      dispatch({ type: UserActionTypes.FETCH_ERROR, payload: error });
+      if (error.response.status === 404) {
+        toast("User not found");
+        dispatch({
+          type: UserActionTypes.FETCH_ERROR,
+          payload: { message: "No such user exists", status: 404 },
+        });
+      } else {
+        toast("Something went wrong");
+        dispatch({
+          type: UserActionTypes.FETCH_ERROR,
+          payload: { message: "Something went wrong", status: 500 },
+        });
+      }
     }
   };
 
@@ -33,6 +44,8 @@ export const getUserFeeds =
   async (dispatch: Dispatch<UserAction>, getState) => {
     try {
       const currentState = getState();
+      if (!currentState.user.data.user) return;
+
       const currentPage = currentState.user.page;
       dispatch({ type: UserActionTypes.FETCH_REQUEST });
       const { page, photos } = await fetchUserPhotos<Feed[]>(

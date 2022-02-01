@@ -9,6 +9,9 @@ export const COLORS = {
     "--card": "#fff",
     "--white": "#fff",
     "--like": "#e31b23",
+    "--danger": "#dc0000",
+    "--light-danger": "#fedada",
+    "--hover-danger": "#feb1b1",
   },
   dark: {
     "--primary-color": "#1da1f2",
@@ -20,5 +23,8 @@ export const COLORS = {
     "--card": "#192734",
     "--white": "#ffffff",
     "--like": "#e31b23",
+    "--danger": "#dc0000",
+    "--light-danger": "#fedada",
+    "--hover-danger": "#feb1b1",
   },
 };

@@ -1,3 +1,4 @@
+import { Error } from "common/reusables";
 import { FeedList, SuggestedUsers } from "components";
 import React, { useEffect } from "react";
 import { AiOutlineReload } from "react-icons/ai";
@@ -11,6 +12,7 @@ function HomePage() {
     data: { feeds },
     loading,
     complete,
+    errors,
   } = useSelector(selectFeeds);
 
   useEffect(() => {
@@ -18,13 +20,24 @@ function HomePage() {
   }, []);
 
   const scrollAction = () => {
-    console.log("Reached API call");
     dispatch(getFeeds());
   };
 
   const reloadPosts = () => {
     dispatch(getFeeds(true));
   };
+
+  if (errors && feeds.length === 0) {
+    return (
+      <Error
+        message="Some error occurred"
+        style={{ marginTop: "30px" }}
+        retry={() => {
+          dispatch(getFeeds(true));
+        }}
+      />
+    );
+  }
 
   return (
     <div className="hp12Body">
@@ -39,6 +52,14 @@ function HomePage() {
             loading={loading}
             scrollAction={scrollAction}
           />
+          {errors && (
+            <Error
+              message="Some error occurred"
+              retry={() => {
+                dispatch(getFeeds());
+              }}
+            />
+          )}
         </div>
         <div className="hp12SuggestedContainer">
           <SuggestedUsers />

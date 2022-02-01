@@ -1,9 +1,16 @@
+import { Outlet } from "react-router-dom";
 import { ProfilePage, HomePage, NotFoundPage } from "views";
 
-const routes = [
+export const routes = [
   {
-    path: "/user/:userId",
+    path: "user",
     Component: ProfilePage,
+    routes: [
+      {
+        path: ":username",
+        Component: Outlet,
+      },
+    ],
   },
   {
     path: "/",
@@ -14,5 +21,3 @@ const routes = [
     Component: NotFoundPage,
   },
 ];
-
-export default routes;

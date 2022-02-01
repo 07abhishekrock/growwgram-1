@@ -35,7 +35,7 @@ interface actionUserPhotosSuccess {
 
 interface actionFail {
   type: UserActionTypes.FETCH_ERROR;
-  payload: string;
+  payload: Object;
 }
 
 export type UserAction =

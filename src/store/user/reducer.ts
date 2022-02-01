@@ -8,7 +8,6 @@ const initialState: UserState = {
   },
   complete: false,
   loading: false,
-  errors: "",
   page: 0,
 };
 
@@ -28,7 +27,6 @@ export const userReducer: Reducer<UserState> = (
       };
     }
     case UserActionTypes.FETCH_USER_PHOTOS_SUCCESS: {
-      console.log(action.payload);
       return {
         ...state,
         loading: false,
@@ -41,7 +39,7 @@ export const userReducer: Reducer<UserState> = (
       return { ...state, loading: false, errors: action.payload };
     }
     case UserActionTypes.RESET: {
-      return { ...state, ...initialState };
+      return { ...state, ...initialState, errors: null };
     }
     default: {
       return state;

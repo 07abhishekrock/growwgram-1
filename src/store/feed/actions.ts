@@ -20,8 +20,6 @@ export const getFeeds =
       const currentState = getState();
       const currentPage = currentState.feed.page;
 
-      console.log(currentState.feed);
-
       dispatch({ type: FeedActionTypes.FETCH_REQUEST });
       const { feeds, page } = await fetchFeeds<Feed[]>(
         currentPage + 1,

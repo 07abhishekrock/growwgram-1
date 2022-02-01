@@ -9,7 +9,6 @@ export const fetchUserDetails = async <T = any>(username: string) => {
     }
     clearCache("user");
     const resp = await axiosInstance.get<T>(`/users/${username}`);
-    console.log(resp.data, "User");
     setUserValue({ user: resp.data, page: 0 });
     return resp.data;
   } catch (error) {
