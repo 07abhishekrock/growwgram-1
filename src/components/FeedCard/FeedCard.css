@@ -73,7 +73,17 @@ a {
   background: var(--hover);
 }
 
+.fc12ImageWrapper {
+  background: var(--background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
 
+.fc12Image {
+  height: 100%;
+}
 
 .fc12Description {
   margin: 10px 0;

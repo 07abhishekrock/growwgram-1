@@ -14,6 +14,7 @@ import { Feed, FeedActionTypes } from "store/feed";
 import { UserListItem } from "components";
 import { copyToClipboard, getTimeFrom } from "utils/helpers";
 import { ImageRenderer } from "common/reusables";
+import { User } from "store/user";
 
 interface Props {
   feed: Feed;
@@ -86,7 +87,7 @@ const FeedCard: React.FC<Props> = ({ feed, idx }) => {
           <p className="fc12Time">{getTimeFrom(feed.created_at)}</p>
         </div>
 
-        <UserListItem user={feed.user as any} />
+        <UserListItem user={feed.user as Partial<User>} />
       </div>
       <Modal
         isOpen={open}
@@ -95,7 +96,13 @@ const FeedCard: React.FC<Props> = ({ feed, idx }) => {
         overlayClassName="fc12Overlay"
       >
         <IoCloseOutline size={30} className="fc12Close" onClick={closeModal} />
-        <ImageRenderer url={feed.urls.raw} thumb={feed.urls.small} />
+        <div className="fc12ImageWrapper">
+          <img
+            src={feed.urls.regular}
+            alt={feed.alt_description}
+            className="fc12Image"
+          />
+        </div>
       </Modal>
     </div>
   );

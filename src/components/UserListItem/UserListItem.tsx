@@ -17,21 +17,25 @@ const UserListItem: React.FC<Props> = ({ user }) => {
       <div className="uli12Body">
         <div className="uli12ImgContainer">
           <div className="uli12Img">
-            <img src={user.profile_image.medium} alt={user.username} />
+            <img src={user.profile_image?.medium} alt={user.username} />
           </div>
         </div>
         <div className="uli12Details">
           <p className="uli12Name">{user.name}</p>
           <div className="uli12Stats">
-            <p>
-              <AiFillHeart className="uli12Icon" />{" "}
-              {formatNumberString(user.total_likes)}
-            </p>
+            {user.total_likes && (
+              <p>
+                <AiFillHeart className="uli12Icon" />{" "}
+                {formatNumberString(user.total_likes)}
+              </p>
+            )}
 
-            <p>
-              <IoMdPhotos className="uli12Icon" />{" "}
-              {formatNumberString(user.total_photos)}
-            </p>
+            {user.total_photos && (
+              <p>
+                <IoMdPhotos className="uli12Icon" />{" "}
+                {formatNumberString(user.total_photos)}
+              </p>
+            )}
           </div>
         </div>
       </div>

@@ -30,19 +30,19 @@ export interface Feed {
 }
 
 export interface SuggestedUser {
-  bio: "· Co-Founder of Evano & Aesence.\r\n· Minimalist design lover & hobby photographer.\r\n";
-  first_name: "Sarah";
-  id: "J2vZstLiwhU";
-  last_name: "Dorweiler";
-  name: "Sarah Dorweiler";
-  profile_image: {
+  bio?: string;
+  first_name?: string;
+  id?: string;
+  last_name?: string;
+  name?: string;
+  profile_image?: {
     large: string;
     small: string;
     medium: string;
   };
-  total_likes: 418;
-  total_photos: 29;
-  username: "sarahdorweiler";
+  total_likes?: number;
+  total_photos?: number;
+  username?: string;
 }
 
 export interface FeedState {
