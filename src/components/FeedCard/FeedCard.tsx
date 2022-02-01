@@ -7,13 +7,12 @@ import {
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import Modal from "react-modal";
-import { IoCloseOutline } from "react-icons/io5";
 
 import "./feedCard.css";
 import { Feed, FeedActionTypes } from "store/feed";
 import { UserListItem } from "components";
 import { copyToClipboard, getTimeFrom } from "utils/helpers";
-import { ImageRenderer } from "common/reusables";
+import { ImagePreview, ImageRenderer } from "common/reusables";
 import { User } from "store/user";
 
 interface Props {
@@ -95,14 +94,7 @@ const FeedCard: React.FC<Props> = ({ feed, idx }) => {
         className="fc12Modal"
         overlayClassName="fc12Overlay"
       >
-        <IoCloseOutline size={30} className="fc12Close" onClick={closeModal} />
-        <div className="fc12ImageWrapper">
-          <img
-            src={feed.urls.regular}
-            alt={feed.alt_description}
-            className="fc12Image"
-          />
-        </div>
+        <ImagePreview feed={feed} closeModal={closeModal} />
       </Modal>
     </div>
   );

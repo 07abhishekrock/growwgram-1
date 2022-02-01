@@ -67,23 +67,14 @@ a {
   transition: background 150ms linear;
 }
 
-
-
 .fc12IconContainer:hover {
   background: var(--hover);
 }
 
-.fc12ImageWrapper {
-  background: var(--background);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
 
-.fc12Image {
+/* .fc12Image {
   height: 100%;
-}
+} */
 
 .fc12Description {
   margin: 10px 0;
@@ -131,20 +122,16 @@ a {
   bottom: 0px;
   right: 0px;
   z-index: 5;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0, 0, 0, 0.562);
 }
 
-.fc12Close {
-  position: absolute;
-  z-index: 10;
-  right: 0;
-  cursor: pointer;
-}
+
 
 .fc12ModalImage {
   height: 100%;
   width: 100%;
   object-fit: cover;
+
 }
 
 @media (min-width: 576px) {

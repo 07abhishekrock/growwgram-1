@@ -23,14 +23,14 @@ const UserListItem: React.FC<Props> = ({ user }) => {
         <div className="uli12Details">
           <p className="uli12Name">{user.name}</p>
           <div className="uli12Stats">
-            {user.total_likes && (
+            {user.total_likes !== null && user.total_likes !== undefined && (
               <p>
                 <AiFillHeart className="uli12Icon" />{" "}
                 {formatNumberString(user.total_likes)}
               </p>
             )}
 
-            {user.total_photos && (
+            {user.total_photos !== null && user.total_photos !== undefined && (
               <p>
                 <IoMdPhotos className="uli12Icon" />{" "}
                 {formatNumberString(user.total_photos)}

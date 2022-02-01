@@ -1,0 +1,117 @@
+.ip46TopBar {
+    position: absolute;
+    z-index: 10;
+  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    width: 100%;
+    padding: 15px;
+    padding-bottom: 30px;
+    background: linear-gradient(to bottom, rgba(39, 39, 39, 0.767), rgba(153, 152, 152, 0.048));
+
+    color: var(--white);
+}
+
+.ip46ZoomContainer {
+    display: flex;
+    align-items: center;
+}
+
+
+.ip46Values {
+    font-size: var(--text-xs);
+    color: var(--white);
+}
+  
+  .ip46HorizontalSlider {
+    width: 100px;
+    height: 20px;
+    margin: 0px 10px;
+  }
+  
+  .ip46Thumb {
+    cursor: pointer;
+    position: absolute;
+    z-index: 100;
+    background: var(--white);
+    border-radius: 100%;
+    display: block;
+    box-shadow: 0 0 2px 0 rgb(0 0 0 / 44%);
+  }
+
+  .ip46Thumb.active {
+    background-color: var(--primary-color);
+  }
+
+  .ip46Tooltip {
+    display: none;
+  }
+
+  .ip46Thumb:hover .ip46Tooltip {
+    display: block;
+    width: 40px;
+    text-align: center;
+
+    position: absolute;
+    left: -15px;
+    bottom: 12px;
+    font-size: var(--text-xxs);
+    color: var(--white);
+  }
+
+
+  .ip46Track {
+    position: relative;
+    background: var(--light-gray);
+  }
+  .ip46Track.ip46Track-0 {
+    background: var(--primary-color);
+  }
+  .ip46HorizontalSlider .ip46Track {
+    top: 8px;
+    height: 4px;
+  }
+  .ip46HorizontalSlider .ip46Thumb {
+    top: 5px;
+    width: 10px;
+    height: 10px;
+  }
+
+  .ip46Icon {
+    border-radius: 5px;
+    padding: 5px;
+    transition: background 150ms;
+    color: var(--white);
+    font-size: var(--text-xl);
+  }
+
+  .ip46Icon:hover {
+    cursor: pointer;
+    background: rgba(97, 97, 97, 0.44);
+  }
+
+  .ip46Icon:disabled {
+    cursor: not-allowed;
+    filter: brightness(0.8);
+    background: transparent;
+  }
+
+  .ip46ImageWrapper {
+    height: 100%;
+    position: relative;
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .ip46Background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  
+    backdrop-filter: blur(20px);
+  }
