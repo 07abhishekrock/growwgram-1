@@ -148,7 +148,7 @@ const ProfilePage = () => {
             {stats.map((stat, i) => (
               <div
                 className="pp12StatContainer"
-                style={i === stats.length - 1 ? { marginRight: "0px" } : {}}
+                style={i === 0 ? { marginLeft: "0px" } : {}}
                 key={stat.key}
               >
                 {user ? (

@@ -69,7 +69,7 @@
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 1280px) {
   .theme-toggle > svg {
     inline-size: 50%;
     block-size: 50%;

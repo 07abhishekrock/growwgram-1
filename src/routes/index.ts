@@ -1,14 +1,20 @@
 import { Outlet } from "react-router-dom";
 import { ProfilePage, HomePage, NotFoundPage } from "views";
 
-export const routes = [
+export interface RoutesType {
+  path: string;
+  Component: () => JSX.Element;
+  routes?: RoutesType[];
+}
+
+export const routes: RoutesType[] = [
   {
     path: "user",
     Component: ProfilePage,
     routes: [
       {
         path: ":username",
-        Component: Outlet,
+        Component: Outlet as any,
       },
     ],
   },

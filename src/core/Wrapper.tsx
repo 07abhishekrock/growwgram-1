@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { routes } from "routes/index";
+import { routes, RoutesType } from "routes/index";
 import { store } from "store";
 import { initializeTheme } from "utils";
 import "styles/style.css";
@@ -18,9 +18,9 @@ function Wrapper() {
     initializeTheme();
   }, []);
 
-  const renderRoutes = (routes: any) => {
-    return routes.map(({ path, Component, routes: nestedRoutes }: any) => (
-      <Route path={path} element={<Component />}>
+  const renderRoutes = (routes: RoutesType[]) => {
+    return routes.map(({ path, Component, routes: nestedRoutes }, i) => (
+      <Route path={path} element={<Component />} key={i}>
         {nestedRoutes && renderRoutes(nestedRoutes)}
       </Route>
     ));
