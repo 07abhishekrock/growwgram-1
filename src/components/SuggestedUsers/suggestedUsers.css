@@ -1,0 +1,14 @@
+.su13Body {
+  position: sticky;
+  top: 70px;
+  width: inherit;
+  padding-left: 80px;
+}
+
+.su13Title {
+  margin-bottom: 10px;
+
+  font-size: var(--text-xs);
+  color: var(--dark-gray);
+  font-weight: 600;
+}

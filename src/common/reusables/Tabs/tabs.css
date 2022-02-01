@@ -1,0 +1,63 @@
+.t12Body {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 10px;
+
+  width: 100%;
+}
+
+.t12Track {
+  display: flex;
+  justify-content: center;
+  height: 1px;
+  background: var(--light-gray);
+  position: relative;
+}
+
+.t12Line {
+  position: absolute;
+  height: 2px;
+  width: 80px;
+  background: var(--primary-color);
+  /* transform: translateX(50%); */
+  transition: transform 200ms ease-out;
+}
+
+.left {
+  transform: translateX(-50px);
+}
+
+.right {
+  transform: translateX(50px);
+}
+
+.t12Tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100px;
+
+  background: transparent;
+  border: none;
+
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--dark-gray);
+
+  transition: transform 300ms linear;
+}
+
+.t12Tab:hover {
+  cursor: pointer;
+}
+
+.selected {
+  color: var(--primary-color);
+  transform: scale(1.1);
+}
+
+.t12Icon {
+  margin-right: 5px;
+}
