@@ -1,7 +1,7 @@
 import { Error } from "common/reusables";
 import { FeedList, SuggestedUsers } from "components";
 import React, { useEffect } from "react";
-import { AiOutlineReload } from "react-icons/ai";
+
 import { useDispatch, useSelector } from "react-redux";
 import { getFeeds, selectFeeds } from "store/feed";
 import "./homePage.css";
@@ -23,10 +23,6 @@ function HomePage() {
     dispatch(getFeeds());
   };
 
-  const reloadPosts = () => {
-    dispatch(getFeeds(true));
-  };
-
   if (errors && feeds.length === 0) {
     return (
       <Error
@@ -41,9 +37,6 @@ function HomePage() {
 
   return (
     <div className="hp12Body">
-      <button className="hp12Button" onClick={reloadPosts}>
-        <AiOutlineReload className="hp12Icon" /> Refresh Feed
-      </button>
       <div className="hp12Wrapper">
         <div className="hp12FeedContainer">
           <FeedList

@@ -18,3 +18,15 @@
   filter: brightness(0.8);
   transition: filter 250ms linear;
 }
+
+@media (max-width:576px) {
+  .gv12Body {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  
+    padding: 10px 0;
+  }
+
+  .gv12Image {
+    height: 200px;
+  }
+}

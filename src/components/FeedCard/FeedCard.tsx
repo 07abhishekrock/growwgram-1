@@ -28,7 +28,7 @@ const FeedCard: React.FC<Props> = ({ feed, idx }) => {
   const copyLink = async () => {
     try {
       await copyToClipboard(feed.links.html);
-      toast("Copied to clipboard!");
+      toast.success("Copied to clipboard!");
     } catch (error) {
       console.log(error);
     }

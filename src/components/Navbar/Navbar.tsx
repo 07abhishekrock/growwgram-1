@@ -1,14 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { AiFillHome } from "react-icons/ai";
 import { FaUser } from "react-icons/fa";
-import { MdExplore } from "react-icons/md";
-
+import { FiRefreshCw } from "react-icons/fi";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { getFeeds } from "store/feed";
 import { updateThemeColors } from "utils/helpers";
 import { ToggleTheme } from "..";
 import "./navbar.css";
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+
   const toggleColorMode = () => {
     const currentTheme = document.firstElementChild?.getAttribute("data-theme");
     const newTheme = currentTheme === "light" ? "dark" : "light";
@@ -17,6 +20,10 @@ const Navbar = () => {
     document.firstElementChild!.setAttribute("data-theme", newTheme);
 
     updateThemeColors(newTheme);
+  };
+
+  const reloadPosts = () => {
+    dispatch(getFeeds(true));
   };
 
   return (
@@ -31,7 +38,13 @@ const Navbar = () => {
         <Link to="/" className="nb23Icon nb23IconHidden">
           <AiFillHome size={22} />
         </Link>
-        <MdExplore size={24} className="nb23Icon nb23IconHidden" />
+        <button
+          className="nb23Button"
+          title="Refresh Feed"
+          onClick={reloadPosts}
+        >
+          <FiRefreshCw size={22} className="nb23Icon" />
+        </button>
         <div className="nb23Profile nb23Icon">
           <FaUser size={20} />
         </div>

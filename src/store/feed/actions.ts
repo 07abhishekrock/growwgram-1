@@ -38,7 +38,7 @@ export const getFeeds =
       });
     } catch (error: any) {
       console.log(error);
-      toast("Something went wrong");
+      toast.error("Something went wrong");
       dispatch({ type: FeedActionTypes.FETCH_ERROR, payload: error });
     }
   };

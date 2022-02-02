@@ -12,6 +12,8 @@ export const COLORS = {
     "--danger": "#dc0000",
     "--light-danger": "#fedada",
     "--hover-danger": "#feb1b1",
+    "--success": "#28a745",
+    "--light-success": "#DFF2BF",
   },
   dark: {
     "--primary-color": "#1da1f2",
@@ -26,5 +28,7 @@ export const COLORS = {
     "--danger": "#dc0000",
     "--light-danger": "#fedada",
     "--hover-danger": "#feb1b1",
+    "--success": "#28a745",
+    "--light-success": "#DFF2BF",
   },
 };

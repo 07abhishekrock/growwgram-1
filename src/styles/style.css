@@ -15,6 +15,8 @@
   --logo-font: 'Quintessential', cursive;
 
   /* Colors */
+  --toastify-text-color-light: #1da1f2;
+  --toastify-text-color-dark: #1da1f2;
   /* Light theme */
   /* --primary-color: #1da1f2;
   --text-color: #14171a;
@@ -86,4 +88,18 @@ button {
 
 button:hover {
   cursor: pointer;
+}
+
+.Toastify__toast-container {
+  width: 320px;
+}
+
+.Toastify__toast--success {
+  background: var(--light-success);
+  color: var(--success);
+}
+
+.Toastify__toast--error {
+  background: var(--light-danger);
+  color: var(--danger);
 }

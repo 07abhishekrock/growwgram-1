@@ -24,13 +24,13 @@ export const getUser =
     } catch (error: any) {
       console.log(error);
       if (error.response.status === 404) {
-        toast("User not found");
+        toast.error("User not found");
         dispatch({
           type: UserActionTypes.FETCH_ERROR,
           payload: { message: "No such user exists", status: 404 },
         });
       } else {
-        toast("Something went wrong");
+        toast.error("Something went wrong");
         dispatch({
           type: UserActionTypes.FETCH_ERROR,
           payload: { message: "Something went wrong", status: 500 },
@@ -73,7 +73,7 @@ export const getUserFeeds =
       });
     } catch (error: any) {
       console.log(error);
-      toast("Something went wrong");
+      toast.error("Something went wrong");
       dispatch({ type: UserActionTypes.FETCH_ERROR, payload: error });
     }
   };
